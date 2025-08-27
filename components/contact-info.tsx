@@ -36,8 +36,8 @@ export function ContactInfo() {
           Contact Information
         </h2>
         <p className="text-muted-foreground mb-8">
-          Reach out to us through any of these channels. We're always happy to
-          help.
+          Reach out to us through any of these channels. We&aps;re always happy
+          to help.
         </p>
       </div>
 

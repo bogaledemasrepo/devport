@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { ArrowDown } from "lucide-react"
-
+import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
+import Image from "next/image";
 export function PersonalHero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/30 to-background">
@@ -9,7 +9,7 @@ export function PersonalHero() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
-                Hi, I'm <span className="text-primary">Alex Johnson</span>
+                Hi, I&apos;m <span className="text-primary">Alex Johnson</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground font-light">
                 Creative Developer & Digital Storyteller
@@ -17,13 +17,14 @@ export function PersonalHero() {
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              I craft digital experiences that bridge the gap between beautiful design and powerful functionality. With
-              a passion for innovation and a love for clean code, I bring ideas to life.
+              I craft digital experiences that bridge the gap between beautiful
+              design and powerful functionality. With a passion for innovation
+              and a love for clean code, I bring ideas to life.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-primary hover:bg-primary/90">
-                Let's Connect
+                Let&apos;s Connect
               </Button>
               <Button
                 variant="outline"
@@ -38,7 +39,7 @@ export function PersonalHero() {
           <div className="relative">
             <div className="relative w-full max-w-md mx-auto">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl"></div>
-              <img
+              <Image
                 src="/professional-portrait-of-a-creative-developer--mod.png"
                 alt="Alex Johnson - Creative Developer"
                 className="relative z-10 w-full h-auto rounded-2xl shadow-2xl"
@@ -52,5 +53,5 @@ export function PersonalHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

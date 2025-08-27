@@ -19,8 +19,8 @@ export default function ContactPage() {
               Ready to Connect?
             </h3>
             <p className="text-muted-foreground">
-              We'd love to hear from you. Send us a message and we'll respond as
-              soon as possible.
+              We&aps;d love to hear from you. Send us a message and we&aps;ll
+              respond as soon as possible.
             </p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-function GET(){}
-function POST(){}
-function PUT(){}
-function DELETE(){}
+export function GET(){}
+export function POST(){}
+export function PUT(){}
+export function DELETE(){}

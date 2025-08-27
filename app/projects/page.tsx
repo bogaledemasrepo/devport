@@ -63,7 +63,6 @@ export default function ProjectsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projectsData.map((project, index) => {
-              const IconComponent = project.icon;
               return (
                 <Card
                   key={index}
@@ -122,8 +121,8 @@ export default function ProjectsPage() {
             Ready to Work Together?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 text-pretty">
-            Let's discuss how I can help bring your next project to life with
-            modern, scalable solutions across all platforms.
+            Let&aps;s discuss how I can help bring your next project to life
+            with modern, scalable solutions across all platforms.
           </p>
           <Button size="lg" className="text-lg px-8">
             Get In Touch
