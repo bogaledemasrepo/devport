@@ -1,7 +1,13 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import heroPhoto from "./../public/images/hero.png";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, Download } from "lucide-react";
+// import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import ServiceCard from "@/components/Service-card";
+
 export default function Home() {
   const handleCvDownload = () => {
     const link = document.createElement("a");
@@ -9,81 +15,126 @@ export default function Home() {
     link.download = "bogicv.pdf";
     link.click();
   };
+
+  const services = [
+    {
+      title: "Backend Development",
+      discription:
+        "I develop robust and scalable server-side applications and APIs. My skills include building enterprise-grade applications with Spring Boot, a powerful and efficient framework for Java-based services. I also excel at creating high-performance, event-driven applications using Node.js and the Express framework, which is ideal for building RESTful APIs and real-time applications.",
+      icon: "http://localhost:3000/backend-server-icon.png",
+      link: "/projects/?filter=backend",
+    },
+    {
+      title: "Frontend Development",
+      discription:
+        "I specialize in creating modern, dynamic, and highly performant user interfaces. Using React, I build complex UIs from reusable components, ensuring a modular and scalable codebase. I leverage Tailwind CSS to rapidly develop responsive and aesthetically pleasing designs directly within the code, which accelerates the development process.",
+      icon: "http://localhost:3000/frontend-icon.jpeg",
+      link: "/projects/?filter=frontend",
+    },
+    {
+      title: "Mobile App Development",
+      discription:
+        "I create cross-platform mobile applications for both iOS and Android from a single codebase using React Native. This approach significantly reduces development time and cost while delivering a native-like user experience and performance. I build apps with a strong focus on intuitive UI/UX, responsive design, and seamless integration with device-specific features.",
+      icon: "http://localhost:3000/mobile-development.jpg",
+      link: "/projects/?filter=mobile",
+    },
+  ];
+
   return (
-    <main className="flex dark:bg-slate-950/90 items-center py-8 flex-col justify-center relative min-h-screen">
-      <div className="max-w-[1080px]  grid lg:grid-cols-2">
-        <div className="flex-1 flex flex-col px-4 container mx-auto">
-          <div className="w-full flex items-start">
-            <p className="title">Hi! I&apos;m Bogale</p>
-          </div>
-          <div className="flex-1 py-4 flex flex-col justify-end">
-            <h5 className="subtitle">Software developer</h5>
-            <p className="py-4 ">
-              Highly skilled software developer with extensive experience in
-              building robust web and mobile applications.
-            </p>
-            <p className="py-4 ">
-              {" "}
-              A collaborative team player with excelent problem-solviing
-              capablity and a passion for continous learning and adapting to
-              emerging technologies.
-            </p>
-            <div className="text-sm text-[#342c3d76]">
-              <p className="text-blue-500 font-semibold">
-                Email:{" "}
-                <Link href={"bogidemas@gmail.com"}>bogidemas@gmail.com</Link>
+    <main className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
+                Hi, I'm <span className="text-primary">Bogale Demas</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-muted-foreground font-light">
+                Software Developer
               </p>
-              <p className="font-semibold ">Tel: +251923872187</p>
             </div>
-            <div className="py-4 flex gap-4">
-              <button
-                className="w-full border p-3  text-lg border-blue-300 bg-blue-600 rounded-md font-semibold"
+
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+              Results-oriented full-stack web developer with 2+ years of
+              experience in designing, developing, and deploying scalable web
+              applications. Proficient in a range of front-end and back-end
+              technologies, including JavaScript, React, Node.js, and SQL.
+              Seeking to leverage my expertise to build robust solutions and
+              contribute to a collaborative team.
+            </p>
+
+            {/* Contact Info */}
+            <Card>
+              <CardContent className="p-6">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <Mail className="w-5 h-5 text-primary" />
+                    <Link
+                      href="mailto:bogidemas@gmail.com"
+                      className="text-primary hover:underline font-medium"
+                    >
+                      bogidemas@gmail.com
+                    </Link>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-5 h-5 text-primary" />
+                    <span className="font-medium">+251923872187</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
                 onClick={handleCvDownload}
+                size="lg"
+                className="flex items-center gap-2"
               >
-                Download cv
-              </button>
-              <button className="w-full font-semibold border text-lg p-3  border-gray-300  rounded-md">
-                Hire me know!
-              </button>
+                <Download className="w-4 h-4" />
+                Download CV
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="/contact">Hire Me Now!</Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Content - Hero Image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md aspect-square">
+              <Image
+                src="/images/professional-developer-portrait.png"
+                alt="Bogale - Software Developer"
+                fill
+                className="object-cover rounded-2xl shadow-2xl"
+                priority
+              />
             </div>
           </div>
         </div>
-        <div className="flex-1 flex items-center mx-auto justify-center w-full rounded-full p-10 max-w-[540px]">
-          <Image src={heroPhoto} alt="hero" className="rounded-lg" />
+      </section>
+
+      {/* Services Section */}
+      <section className="bg-muted/50 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Services</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              I offer comprehensive development services to bring your ideas to
+              life
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {services.map((service, index) => (
+              <ServiceCard key={index} {...service} />
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="w-full container">
-        <h5 className="underline font-bold text-center text-3xl my-8 text-[#342c3d76]">
-          Services
-        </h5>
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 gap-2">
-          {/* {[
-            {
-              title: "Backend development",
-              discription:
-                "Develop backend applications using nodejs, express with sql and non sql",
-              icon: "/images/backend.png",
-              link: "/projects/?filter=backend",
-            },
-            {
-              title: "Frontend development",
-              discription:
-                "Develop frontend applications using reactjs,tailwindcss, styled components.",
-              icon: "/images/frontend.jpeg",
-              link: "/projects/?filter=frontend",
-            },
-            {
-              title: "Mobile app development",
-              discription:
-                "Develop amaizing crose plateform mobile application using React netive",
-              icon: "/images/android.png",
-              link: "/projects/?filter=mobile",
-            },
-          ].map((Item, index) => (
-            <ServiceCard key={index} {...Item} />
-          ))} */}
-        </div>
-      </div>
+      </section>
     </main>
   );
 }
