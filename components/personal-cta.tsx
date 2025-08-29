@@ -8,7 +8,7 @@ export function PersonalCTA() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Let&aps;s Create Something Amazing Together
+            Let&apos;s Create Something Amazing Together
           </h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
             Whether you have a project in mind, want to collaborate, or just
@@ -38,7 +38,7 @@ export function PersonalCTA() {
               <CardContent className="p-6 text-center">
                 <MessageCircle className="w-8 h-8 text-accent mx-auto mb-4" />
                 <h3 className="font-semibold text-foreground mb-2">
-                  Let&aps;s Chat
+                  Let&apos;s Chat
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   Connect with me on social media or messaging platforms
@@ -65,9 +65,9 @@ export function PersonalCTA() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-secondary text-secondary hover:bg-secondary/10 bg-transparent"
+                  className="border-accent text-accent hover:bg-accent/10 bg-transparent"
                 >
-                  Book Call
+                  Book call
                 </Button>
               </CardContent>
             </Card>

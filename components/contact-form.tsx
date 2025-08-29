@@ -14,13 +14,40 @@ import { Send } from "lucide-react";
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    const formData = new FormData(e.currentTarget);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          subject: `Portfolio Contact from ${formData.get(
+            "firstName"
+          )} ${formData.get("lastName")}`,
+          message: `From: ${formData.get("firstName")} ${formData.get(
+            "lastName"
+          )} <${formData.get("email")}>\n\n${formData.get("message")}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        formData.set("firstName", "");
+        formData.set("lastName", "");
+        formData.set("email", "");
+        formData.set("message", "");
+      } else {
+        setStatus(`Error: ${result.error}`);
+      }
+    } catch (error) {
+      setStatus(`Error: ${(error as Error).message}`);
+    }
 
     toast("Message sent!", {
       description: "We'll get back to you as soon as possible.",

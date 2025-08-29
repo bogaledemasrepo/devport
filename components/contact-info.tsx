@@ -18,8 +18,8 @@ export function ContactInfo() {
     {
       icon: MapPin,
       title: "Office",
-      content: "123 Business Ave, Suite 100",
-      description: "San Francisco, CA 94105",
+      content: "Bole, Gerji",
+      description: "Addis Ababa, Ethiopia",
     },
     {
       icon: Clock,

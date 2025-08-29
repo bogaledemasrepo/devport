@@ -27,7 +27,7 @@ const projectsData = [
       "I leverage Tailwind CSS to rapidly develop responsive and aesthetically pleasing designs directly within the code, which accelerates the development process.",
     icon: Monitor,
     link: "/projects/?filter=frontend",
-    tags: ["React", "Tailwind CSS", "TypeScript", "Next.js", "UI/UX"],
+    tags: ["React", "Tailwind CSS", "TypeScript", "Next.js"],
     color: "bg-secondary/10 text-secondary",
   },
   {
@@ -36,7 +36,7 @@ const projectsData = [
       " This approach significantly reduces development time and performance. I build apps with a strong focus on intuitive UI/UX, responsive design, and seamless integration with device-specific features.",
     icon: Smartphone,
     link: "/projects/?filter=mobile",
-    tags: ["React Native", "iOS", "Android", "Cross-platform", "Mobile UI"],
+    tags: ["React Native", "iOS", "Android", "Cross-platform"],
     color: "bg-accent/10 text-accent",
   },
 ];

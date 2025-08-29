@@ -48,8 +48,8 @@ export default function Home() {
           {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
-                Hi, I&aps;m <span className="text-primary">Bogale Demas</span>
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                Hi, I&apos;m <span className="text-primary">Bogale Demas</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground font-light">
                 Software Developer
