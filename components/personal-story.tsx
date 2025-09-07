@@ -34,7 +34,7 @@ export function PersonalStory() {
 
             <div className="relative">
               <Image
-                src="http://localhost:3000/person-working-on-computer-in-modern-workspace--co.png"
+                src="http://localhost:3000/aboutbogi.JPG"
                 alt="Working on projects"
                 className="w-full h-auto rounded-lg shadow-lg"
                 width={500}

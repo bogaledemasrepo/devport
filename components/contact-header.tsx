@@ -5,7 +5,7 @@ export function ContactHeader() {
         Get in Touch
       </h1>
       <p className="text-lg text-muted-foreground leading-relaxed">
-        We&aps;re here to help and answer any questions you might have. We look
+        We&apos;re here to help and answer any questions you might have. We look
         forward to hearing from you.
       </p>
     </div>

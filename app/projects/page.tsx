@@ -1,51 +1,35 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+// import { useSearchParams } from "next/navigation";
+// import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, Server, Smartphone, Monitor } from "lucide-react";
-import Link from "next/link";
-import { ProjectGallery } from "@/components/ProjectGallery";
+// import { toast } from "sonner";
+interface Probs {
+  searchParams: Promise<{ filter: string }>;
+}
+export default async function ProjectsPage({ searchParams }: Probs) {
+  const { filter } = await searchParams;
 
-const projectsData = [
-  {
-    title: "Backend Development",
-    description:
-      " I also excel at creating high-performance, event-driven applications using Node.js and the Express framework, which is ideal for building RESTful APIs and real-time applications.",
-    icon: Server,
-    link: "/projects/?filter=backend",
-    tags: ["Spring Boot", "Node.js", "Express", "REST APIs", "Java"],
-    color: "bg-primary/10 text-primary",
-  },
-  {
-    title: "Frontend Development",
-    description:
-      "I leverage Tailwind CSS to rapidly develop responsive and aesthetically pleasing designs directly within the code, which accelerates the development process.",
-    icon: Monitor,
-    link: "/projects/?filter=frontend",
-    tags: ["React", "Tailwind CSS", "TypeScript", "Next.js"],
-    color: "bg-secondary/10 text-secondary",
-  },
-  {
-    title: "Mobile App Development",
-    description:
-      " This approach significantly reduces development time and performance. I build apps with a strong focus on intuitive UI/UX, responsive design, and seamless integration with device-specific features.",
-    icon: Smartphone,
-    link: "/projects/?filter=mobile",
-    tags: ["React Native", "iOS", "Android", "Cross-platform"],
-    color: "bg-accent/10 text-accent",
-  },
-];
+  const response = await fetch(`http://localhost:3000/api/projects`);
 
-export default function ProjectsPage() {
+  if (!response.ok) {
+    console.log(response);
+    return (
+      <div className="">
+        <h1>Unkoun server error!</h1>
+      </div>
+    );
+  }
+
+  const result = (await response.json()) as Project[];
+  const projects = result.filter((Item) =>
+    filter ? Item.category == filter : 1
+  );
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
             My <span className="text-primary">Projects</span>
@@ -56,41 +40,56 @@ export default function ProjectsPage() {
             quality, performance, and user experience.
           </p>
         </div>
-      </section>
-
-      {/* Projects Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {projectsData.map((project, index) => {
-              return (
-                <Card
-                  key={index}
-                  className="group hover:shadow-lg transition-all duration-300 border-border bg-card"
-                >
-                  <CardHeader className="space-y-4">
+        <div className="max-w-2xl mx-auto flex flex-col gap-4">
+          {projects &&
+            projects.map((project, index) => (
+              <Card key={index} className={`p-4`}>
+                <CardContent className="p-0">
+                  <div className="relative overflow-hidden rounded-t-lg">
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
                     <div
-                      className={`w-full h-64 rounded-lg ${project.color} flex items-center justify-center relative p-0`}
+                      className={`absolute inset-0 bg-primary/80 opacity-5  hover:opacity-90 flex items-center justify-center gap-4 transition-opacity duration-300 `}
                     >
-                      <ProjectGallery />
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        className="p-2 bg-background rounded-full hover:bg-card transition-colors cursor-pointer"
+                        // onClick={(e) => {
+                        //   e.stopPropagation();
+                        //   window.open(project.liveUrl, "_blank");
+                        // }}
+                      >
+                        <ExternalLink className="w-5 h-5 text-primary" />
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        className="p-2 bg-background rounded-full hover:bg-card transition-colors cursor-pointer"
+                        // onClick={(e) => {
+                        //   e.stopPropagation();
+                        //   window.open(project.githubUrl, "_blank");
+                        // }}
+                      >
+                        <Github className="w-5 h-5 text-primary" />
+                      </Button>
                     </div>
-                    <div>
-                      <CardTitle className="text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors">
-                        {project.title}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-
-                  <CardContent className="space-y-6">
-                    <CardDescription className="text-muted-foreground leading-relaxed w-full h-32 overflow-y-auto">
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2 text-balance">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 text-pretty">
                       {project.description}
-                    </CardDescription>
+                    </p>
 
-                    {/* Technology Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
                         <Badge
-                          key={tagIndex}
+                          key={tag}
                           variant="secondary"
                           className="text-xs"
                         >
@@ -98,30 +97,20 @@ export default function ProjectsPage() {
                         </Badge>
                       ))}
                     </div>
-
-                    {/* Action Button */}
-                    <Button asChild className="w-full group/btn">
-                      <Link href={project.link}>
-                        View Projects
-                        <ArrowUpRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          {!projects && <h1>No project found!.</h1>}
         </div>
       </section>
-
-      {/* Call to Action */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Ready to Work Together?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 text-pretty">
-            Let&aps;s discuss how I can help bring your next project to life
+            Let&apos;s discuss how I can help bring your next project to life
             with modern, scalable solutions across all platforms.
           </p>
           <Button size="lg" className="text-lg px-8">
