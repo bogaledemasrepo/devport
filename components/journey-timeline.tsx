@@ -17,20 +17,6 @@ const timelineEvents = [
       "Integrated payment systems",
     ],
   },
-  // {
-  //   year: "2021",
-  //   title: "Certified AWS Solutions Architect",
-  //   company: "Amazon Web Services",
-  //   location: "Online",
-  //   type: "certification",
-  //   description:
-  //     "Achieved professional certification in cloud architecture and deployment strategies.",
-  //   achievements: [
-  //     "Professional level certification",
-  //     "Cloud architecture expertise",
-  //     "DevOps best practices",
-  //   ],
-  // },
   {
     year: "2024",
     title: "Full-Stack Development",

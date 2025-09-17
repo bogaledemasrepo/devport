@@ -12,7 +12,7 @@ export function PersonalCTA() {
           </h2>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
             Whether you have a project in mind, want to collaborate, or just
-            want to chat about technology and creativity, I&aps;d love to hear
+            want to chat about technology and creativity, I&apos;d love to hear
             from you.
           </p>
 

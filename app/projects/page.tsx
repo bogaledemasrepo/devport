@@ -1,10 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
-// import { useSearchParams } from "next/navigation";
-// import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-// import { toast } from "sonner";
 interface Probs {
   searchParams: Promise<{ filter: string }>;
 }
@@ -46,11 +43,11 @@ export default async function ProjectsPage({ searchParams }: Probs) {
               <Card key={index} className={`p-4`}>
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
-                    <img
+                    {project.category =="mobile"?<video src={"/video/015 Object-fit add-on.mp4"} autoPlay muted loop className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"></video>:<img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+                    />}
                     <div
                       className={`absolute inset-0 bg-primary/80 opacity-5  hover:opacity-90 flex items-center justify-center gap-4 transition-opacity duration-300 `}
                     >
