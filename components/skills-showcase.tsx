@@ -46,8 +46,8 @@ export function SkillsShowcase() {
             and continuous learning.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div className="max-w-4xl mx-auto text-center">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 container">
           {skills.map((skill, index) => (
             <Card
               key={index}
@@ -73,6 +73,7 @@ export function SkillsShowcase() {
               </CardContent>
             </Card>
           ))}
+        </div>
         </div>
       </div>
     </section>

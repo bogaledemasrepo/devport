@@ -1,4 +1,4 @@
-export default [
+ const data=[
   {
     id: 1,
     title: "Shoes Shop Api",
@@ -6,7 +6,7 @@ export default [
     description: "A modern e-commerce api with advanced filtering and pagination using modern and most secured programming languae Java with Spring-boot framework.",
     longDescription:
       "Built a comprehensive e-commerce platform api featuring aithenticcation and authorization, advanced product filtering, secure payment processing with Stripe. Implemented server-side rendering for optimal SEO and performance.",
-    image: "",
+    image: "placeholder.png",
     tags: ["Java", "Spring-boot", "Stripe", "Jwt","Postgres"],
     featured: true,
     liveUrl: "https://ecommerce-demo.vercel.app",
@@ -127,3 +127,5 @@ export default [
     },
   },
 ]
+
+export default data;
