@@ -6,10 +6,12 @@ import Image from "next/image";
 interface Probs {
   searchParams: Promise<{ filter: string }>;
 }
+
+
 export default async function ProjectsPage({ searchParams }: Probs) {
   const { filter } = await searchParams;
 
-  const response = await fetch(`http://localhost:3000/api/projects`);
+  const response = await fetch(`${process.env.SERVER_URL}/api/projects`);
 
   if (!response.ok) {
     console.log(response);
