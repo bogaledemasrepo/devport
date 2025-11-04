@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import adnroid from "@/public/android.png";
 import Link from "next/link";
 import {
   Card,
@@ -28,7 +27,7 @@ export default function ServiceCard({
       <CardHeader className="text-center">
         <div className="mx-auto mb-4 relative  w-20 h-20">
           <Image
-            src={icon || adnroid}
+            src="/images/professional-developer-portrait.png"
             alt={title}
             fill
             objectFit="cover"

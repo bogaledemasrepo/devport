@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { headers } from "next/headers";
+import serverUrl from "@/constant";
 interface Probs {
   searchParams: Promise<{ filter: string }>;
 }
@@ -11,21 +11,7 @@ interface Probs {
 
 export default async function ProjectsPage({ searchParams }: Probs) {
   const { filter } = await searchParams;
-  // 1. Get the request headers
-  const headersList = headers();
-  // 2. Extract the host (e.g., 'localhost:3000' or 'example.com')
-  const host = (await headersList).get('host');
-  // 3. Determine the protocol (default to http for dev, https for most deploys)
-  //    This logic can be simplified if you only call your own API.
-  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'; 
-
-  // 4. Construct the base URL for the internal API call
-  const serverBaseUrl = `${protocol}://${host}`;
-  
-  // 5. Use the constructed URL in your fetch
-  const response = await fetch(`${serverBaseUrl}/api/projects`);
-
-
+  const response = await fetch(`${serverUrl}/api/projects`);
   if (!response.ok) {
     console.log(response);
     return (

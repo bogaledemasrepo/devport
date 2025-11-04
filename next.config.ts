@@ -6,12 +6,18 @@ const nextConfig: NextConfig = {
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '3000', // Optional, leave empty unless specific port is needed
-        pathname: '/**', // Optional, allows all paths under this domain
+        port: '3000',
+        pathname: '/**', 
+      }
+      ,
+        {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**', 
       }
     ],
   }
-  /* config options here */
 };
 
 export default nextConfig;
