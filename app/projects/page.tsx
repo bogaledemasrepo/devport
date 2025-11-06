@@ -1,54 +1,18 @@
+"use client"
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-interface Probs {
-  searchParams: Promise<{ filter: string }>;
-}
-import { headers } from 'next/headers';
-import React from 'react';
+import { useEffect, useState } from "react";
 
-async function getServerUrl() {
-  const headersList = headers();
-  
-  // 1. Get the Host header (e.g., 'localhost:3000' or 'example.com')
-  const host = (await headersList).get('host');
-
-  if (!host) {
-    // Should not happen in a typical request, but good practice to handle.
-    return 'http://localhost:3000'; 
-  }
-
-  // 2. Get the protocol. 
-  // 'x-forwarded-proto' is reliable for deployed environments (Vercel, etc.).
-  const protocol = (await headersList).get('x-forwarded-proto') || (host.includes('localhost') ? 'http' : 'https');
-
-  // 3. Construct and return the base URL
-  return `${protocol}://${host}`;
-}
-
-
-export default async function ProjectsPage({ searchParams }: Probs) {
-  const { filter } = await searchParams;
-  const serverURL=await getServerUrl();
-  const response = await fetch(`${serverURL}/api/projects`);
-  if (!response.ok) {
-    console.log(response);
-    return (
-      <div className="">
-        <h1>Unkoun server error!</h1>
-      </div>
-    );
-  }
-
-  const result = (await response.json()) as Project[];
-  const projects = result.filter((Item) =>
-    filter ? Item.category == filter : 1
-  );
+export default function ProjectsPage() {
+  const [projects,setProjects]=useState<Project[]>([])
+  useEffect(()=>{
+    fetch(`/api/projects`).then(res=>res.json().then(data=>setProjects(data)))
+  },[])
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
@@ -61,6 +25,7 @@ export default async function ProjectsPage({ searchParams }: Probs) {
           </p>
         </div>
         <div className="max-w-2xl mx-auto flex flex-col gap-4">
+          {projects.length==0 && <p>No project found!</p>}
           {projects &&
             projects.map((project, index) => (
               <Card key={index} className={`p-4`}>
