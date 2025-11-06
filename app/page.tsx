@@ -6,36 +6,35 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, Download } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import ServiceCard from "@/components/Service-card";
-import serverUrl from "@/constant";
 
 export default function Home() {
   const handleCvDownload = () => {
     const link = document.createElement("a");
-    link.href = "/bogicv.pdf";
-    link.download = "bogicv.pdf";
+    link.href = "/resume.pdf";
+    link.download = "resume.pdf";
     link.click();
   };
 
   const services = [
     {
       title: "Backend Development",
-      discription:
+      description:
         "I develop robust and scalable server-side applications and APIs. My skills include building enterprise-grade applications with Spring Boot, a powerful and efficient framework for Java-based services. I also excel at creating high-performance, event-driven applications using Node.js and the Express framework, which is ideal for building RESTful APIs and real-time applications.",
-      icon: `${serverUrl}/backend-server-icon.png`,
+      icon: `/backend-server-icon.png`,
       link: "/projects/?filter=backend",
     },
     {
       title: "Frontend Development",
-      discription:
+      description:
         "I specialize in creating modern, dynamic, and highly performant user interfaces. Using React, I build complex UIs from reusable components, ensuring a modular and scalable codebase. I leverage Tailwind CSS to rapidly develop responsive and aesthetically pleasing designs directly within the code, which accelerates the development process.",
-      icon: `${serverUrl}/frontend-icon.jpeg`,
+      icon: `/frontend-icon.jpeg`,
       link: "/projects/?filter=frontend",
     },
     {
       title: "Mobile App Development",
-      discription:
+      description:
         "I create cross-platform mobile applications for both iOS and Android from a single codebase using React Native. This approach significantly reduces development time and cost while delivering a native-like user experience and performance. I build apps with a strong focus on intuitive UI/UX, responsive design, and seamless integration with device-specific features.",
-      icon: `${serverUrl}/mobile-development.jpg`,
+      icon: `/mobile-development.jpg`,
       link: "/projects/?filter=mobile",
     },
   ];

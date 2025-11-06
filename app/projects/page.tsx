@@ -3,15 +3,36 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import serverUrl from "@/constant";
 interface Probs {
   searchParams: Promise<{ filter: string }>;
+}
+import { headers } from 'next/headers';
+import React from 'react';
+
+async function getServerUrl() {
+  const headersList = headers();
+  
+  // 1. Get the Host header (e.g., 'localhost:3000' or 'example.com')
+  const host = (await headersList).get('host');
+
+  if (!host) {
+    // Should not happen in a typical request, but good practice to handle.
+    return 'http://localhost:3000'; 
+  }
+
+  // 2. Get the protocol. 
+  // 'x-forwarded-proto' is reliable for deployed environments (Vercel, etc.).
+  const protocol = (await headersList).get('x-forwarded-proto') || (host.includes('localhost') ? 'http' : 'https');
+
+  // 3. Construct and return the base URL
+  return `${protocol}://${host}`;
 }
 
 
 export default async function ProjectsPage({ searchParams }: Probs) {
   const { filter } = await searchParams;
-  const response = await fetch(`${serverUrl}/api/projects`);
+  const serverURL=await getServerUrl();
+  const response = await fetch(`${serverURL}/api/projects`);
   if (!response.ok) {
     console.log(response);
     return (

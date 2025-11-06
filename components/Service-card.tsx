@@ -11,14 +11,14 @@ import {
 
 interface ServiceCardProps {
   title: string;
-  discription: string;
+  description: string;
   icon: string;
   link: string;
 }
 
 export default function ServiceCard({
   title,
-  discription,
+  description,
   icon,
   link,
 }: ServiceCardProps) {
@@ -27,7 +27,7 @@ export default function ServiceCard({
       <CardHeader className="text-center">
         <div className="mx-auto mb-4 relative  w-20 h-20">
           <Image
-            src="/images/professional-developer-portrait.png"
+            src={icon}
             alt={title}
             fill
             objectFit="cover"
@@ -38,7 +38,7 @@ export default function ServiceCard({
       </CardHeader>
       <CardContent className="space-y-4">
         <CardDescription className="text-sm leading-relaxed line-clamp-6">
-          {discription}
+          {description}
         </CardDescription>
         <Button asChild variant="outline" className="w-full bg-transparent">
           <Link href={link}>View Projects</Link>
