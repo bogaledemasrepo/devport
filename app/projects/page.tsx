@@ -31,7 +31,7 @@ export default function ProjectsPage() {
               <Card key={index} className={`p-4`}>
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
-                    {project.category =="mobile"?<video src={"/video/015 Object-fit add-on.mp4"} autoPlay muted loop className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"></video>:
+                    {//project.category =="mobile"?<video src={"/video/015 Object-fit add-on.mp4"} autoPlay muted loop className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"></video>:
                     <Image
                       src={"placeholder.svg"}
                       fill

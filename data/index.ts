@@ -21,27 +21,7 @@
       deployment: ["Vercel", "AWS S3", "CloudFront"],
     },
   },
-  // {
-  //   id: 2,
-  //   title: "SaaS Dashboard",
-  //   category:"frontend",
-  //   description: "Comprehensive analytics dashboard with real-time data visualization",
-  //   longDescription:
-  //     "Developed a powerful SaaS analytics platform with real-time data processing, interactive charts, and customizable reporting. Features include user management, subscription billing, and advanced data export capabilities.",
-  //   image: "/sleek-dashboard-with-charts-and-analytics.png",
-  //   tags: ["TypeScript", "React-native", "Node.js", "Expo"],
-  //   liveUrl: "https://analytics-saas.vercel.app",
-  //   githubUrl: "https://github.com/username/saas-dashboard",
-  //   duration: "4 months",
-  //   teamSize: "3 developers",
-  //   achievements: ["Processing 1M+ data points daily", "Sub-second query response", "95% user satisfaction"],
-  //   challenges: "Handling large datasets efficiently and creating responsive data visualizations",
-  //   technologies: {
-  //     frontend: ["React", "TypeScript", "D3.js", "Chart.js"],
-  //     backend: ["Node.js", "GraphQL", "PostgreSQL", "Redis"],
-  //     deployment: ["Expo", "AWS ECS", "RDS"],
-  //   },
-  // },
+  
   {
     id: 3,
     title: "Shoes shop",
@@ -84,48 +64,27 @@
   //     deployment: ["Vercel", "Railway", "Supabase"],
   //   },
   // },
-  {
-    id: 5,
-    title: "Social Media Platform",
-    category:"frontend",
-    description: "Modern social networking platform with real-time messaging and content sharing",
-    longDescription:
-      "Developed a full-featured social media platform with real-time messaging, content sharing, user profiles, and advanced privacy controls. Implemented scalable architecture to handle thousands of concurrent users.",
-    image: "/social-media-interface.png",
-    tags: ["Vue.js", "Socket.io", "MongoDB", "AWS"],
-    liveUrl: "https://social-platform-demo.com",
-    githubUrl: "https://github.com/username/social-platform",
-    duration: "8 months",
-    teamSize: "6 developers",
-    achievements: ["10k+ active users", "Real-time messaging at scale", "99.5% uptime"],
-    challenges: "Scaling real-time features and implementing content moderation systems",
-    technologies: {
-      frontend: ["Vue.js", "Nuxt.js", "TypeScript", "Socket.io"],
-      backend: ["Node.js", "Express", "MongoDB", "Redis"],
-      deployment: ["AWS EC2", "S3", "CloudFront", "ElastiCache"],
-    },
-  },
-  {
-    id: 6,
-    category:"frontend",
-    title: "Portfolio Website",
-    description: "Responsive portfolio website showcasing creative work with smooth animations",
-    longDescription:
-      "Designed and developed a stunning portfolio website featuring smooth animations, dark & light mode, interactive elements, and optimized performance. Built with modern web technologies and deployed with continuous integration.",
-    image: "/creative-portfolio-website.png",
-    tags: ["Nextjs", "React", "Tailwind", "vercel"],
-    liveUrl: "https://creative-portfolio.netlify.app",
-    githubUrl: "https://github.com/username/portfolio-website",
-    duration: "2 months",
-    teamSize: "1 developer",
-    achievements: ["100/100 Lighthouse score", "Featured on Awwwards", "1k+ monthly visitors"],
-    challenges: "Creating smooth animations while maintaining performance across devices",
-    technologies: {
-      frontend: ["Nextjs", "React", "Tailwindcss", "Shadcn"],
-      backend: ["Contentful CMS", "GraphQL"],
-      deployment: ["Netlify", "CDN optimization"],
-    },
-  },
+  // {
+  //   id: 2,
+  //   title: "SaaS Dashboard",
+  //   category:"frontend",
+  //   description: "Comprehensive analytics dashboard with real-time data visualization",
+  //   longDescription:
+  //     "Developed a powerful SaaS analytics platform with real-time data processing, interactive charts, and customizable reporting. Features include user management, subscription billing, and advanced data export capabilities.",
+  //   image: "/sleek-dashboard-with-charts-and-analytics.png",
+  //   tags: ["TypeScript", "React-native", "Node.js", "Expo"],
+  //   liveUrl: "https://analytics-saas.vercel.app",
+  //   githubUrl: "https://github.com/username/saas-dashboard",
+  //   duration: "4 months",
+  //   teamSize: "3 developers",
+  //   achievements: ["Processing 1M+ data points daily", "Sub-second query response", "95% user satisfaction"],
+  //   challenges: "Handling large datasets efficiently and creating responsive data visualizations",
+  //   technologies: {
+  //     frontend: ["React", "TypeScript", "D3.js", "Chart.js"],
+  //     backend: ["Node.js", "GraphQL", "PostgreSQL", "Redis"],
+  //     deployment: ["Expo", "AWS ECS", "RDS"],
+  //   },
+  // },
 ]
 
 export default data;
