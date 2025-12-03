@@ -10,7 +10,7 @@ import ServiceCard from "@/components/Service-card";
 export default function Home() {
   const handleCvDownload = () => {
     const link = document.createElement("a");
-    link.href = "/resume.pdf";
+    link.href = "/docs/resume.pdf";
     link.download = "resume.pdf";
     link.click();
   };
