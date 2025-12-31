@@ -34,7 +34,7 @@ export function Footer() {
       {/* Background Decorative Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-primary/5 blur-[120px] -z-10" />
 
-      <div className="container mx-auto px-6">
+      <div className="mx-auto px-6 py-20 lg:py-32">
         <motion.div 
           variants={containerVariants}
           initial="hidden"

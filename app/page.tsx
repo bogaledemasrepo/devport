@@ -7,6 +7,7 @@ import { Mail, Phone, Download } from "lucide-react";
 import ServiceCard from "@/components/Service-card";
 import { FadeIn } from "@/components/motion-wrapper"; // Import the motion wrapper
 import { useEffect, useState } from "react";
+import { SERVICES } from "@/constant";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -37,31 +38,12 @@ export default function Home() {
   //   link.click();
   // };
 
-  const services = [
-    {
-      title: "Backend Development",
-      description: "Robust, scalable server-side systems using Spring Boot and Node.js. Focused on performance and event-driven architecture.",
-      icon: `/backend-server-icon.png`,
-      link: "/projects/?filter=backend",
-    },
-    {
-      title: "Frontend Development",
-      description: "Modern, performant UIs with React and Tailwind CSS. Crafting modular, responsive experiences with precision.",
-      icon: `/frontend-icon.jpeg`,
-      link: "/projects/?filter=frontend",
-    },
-    {
-      title: "Mobile App Development",
-      description: "Native-like iOS and Android apps using React Native. Seamless integration and intuitive UX from a single codebase.",
-      icon: `/mobile-development.jpg`,
-      link: "/projects/?filter=mobile",
-    },
-  ];
+  
 
   return (
     <main className="min-h-screen selection:bg-primary/10">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-20 lg:py-32">
+      <section className="container mx-auto px-2 sm:px-6 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           
           {/* Left Content */}
@@ -145,8 +127,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 border-t border-border/40">
-        <div className="container mx-auto px-6">
+      <section className="border-t border-border/40 mx-auto px-2 sm:px-6 py-20 lg:py-32">
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4 tracking-tight">Services</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -155,13 +136,12 @@ export default function Home() {
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {services.map((service, index) => (
+            {SERVICES.map((service, index) => (
               <FadeIn key={index} delay={0.1 * index}>
                 <ServiceCard {...service} />
               </FadeIn>
             ))}
           </div>
-        </div>
       </section>
     </main>
   );

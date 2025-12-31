@@ -125,3 +125,24 @@ export const CONTACTDETAIL = [
                 ]
             }
   ];
+
+export  const SERVICES = [
+      {
+        title: "Backend Development",
+        description: "Robust, scalable server-side systems using Spring Boot and Node.js. Focused on performance and event-driven architecture.",
+        icon: `/backend-server-icon.png`,
+        link: "/projects/?filter=backend",
+      },
+      {
+        title: "Frontend Development",
+        description: "Modern, performant UIs with React and Tailwind CSS. Crafting modular, responsive experiences with precision.",
+        icon: `/frontend-icon.jpeg`,
+        link: "/projects/?filter=frontend",
+      },
+      {
+        title: "Mobile App Development",
+        description: "Native-like iOS and Android apps using React Native. Seamless integration and intuitive UX from a single codebase.",
+        icon: `/mobile-development.jpg`,
+        link: "/projects/?filter=mobile",
+      },
+    ];

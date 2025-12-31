@@ -39,7 +39,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-background selection:bg-primary/20">
       {/* --- Header Section --- */}
-      <section className="pt-24 pb-12 px-6">
+      <section className="mx-auto px-6 py-20 lg:py-32">
         <div className="max-w-6xl mx-auto text-center">
           <FadeIn>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
@@ -51,13 +51,13 @@ export default function ProjectsPage() {
             </p>
 
             {/* Category Filter Tabs */}
-            <div className="flex flex-wrap justify-center gap-2 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
               {["all", "web", "mobile", "backend"].map((cat) => (
                 <Button
                   key={cat}
                   variant={activeCategory === cat ? "default" : "outline"}
                   onClick={() => filterProjects(cat)}
-                  className="rounded-full capitalize px-6 transition-all duration-300"
+                  className="rounded-full capitalize px-4 transition-all duration-300"
                 >
                   {cat}
                 </Button>
@@ -68,7 +68,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* --- Projects Grid --- */}
-      <section className="pb-24 px-6">
+      <section className="mx-auto px-2 sm:px-6 pb-20 lg:py-32">
         <div className="max-w-7xl mx-auto">
           <AnimatePresence mode="popLayout">
             <motion.div 
