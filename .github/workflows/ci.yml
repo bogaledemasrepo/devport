@@ -11,9 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # 1. Setup Bun environment (much faster than npm)
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      # 2. Install dependencies using Bun's lockfile
       - name: Install dependencies
-        run: npm install
+        run: bun install
+
+      # 3. Run Linting
       - name: Run Lint
-        run: npm run lint
+        run: bun run lint
+
+      # 4. Run Unit Tests (This will now use Vitest correctly)
       - name: Run Unit Tests
-        run: npm test
+        run: bun run test
