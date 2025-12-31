@@ -9,6 +9,9 @@ import { SKILLS, TIMELINEEVENT } from "@/constant";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { BookingModal } from "@/components/booking-modal";
+import GetInTech from "@/components/get-in-tech";
 
 export default function AboutPage() {
   return (
@@ -166,36 +169,7 @@ export default function AboutPage() {
       </section>
 
       {/* 4. CTA Section - Modern Gradient Glass */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/[0.02] -z-10" />
-        <div className="container mx-auto px-6 text-center">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Create Together</h2>
-            <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Ready to turn your vision into a scalable digital reality? I'm currently available for new projects and collaborations.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-6 mb-16">
-               {[
-                 { icon: Mail, label: "Email Me", color: "text-primary", border: "border-primary/20" },
-                 { icon: MessageCircle, label: "LinkedIn", color: "text-blue-500", border: "border-blue-500/20" },
-                 { icon: Calendar, label: "Book a Call", color: "text-orange-500", border: "border-orange-500/20" }
-               ].map((item, i) => (
-                 <motion.div key={i} whileHover={{ y: -5 }}>
-                    <Button variant="outline" className={`h-16 px-8 rounded-2xl bg-background shadow-sm ${item.border} hover:bg-secondary transition-all`}>
-                      <item.icon className={`w-5 h-5 mr-3 ${item.color}`} />
-                      <span className="font-semibold">{item.label}</span>
-                    </Button>
-                 </motion.div>
-               ))}
-            </div>
-
-            <Button size="lg" className="h-14 px-10 rounded-full text-lg shadow-xl shadow-primary/20">
-              Get In Touch
-            </Button>
-          </FadeIn>
-        </div>
-      </section>
+      <GetInTech />
     </main>
   );
 }
