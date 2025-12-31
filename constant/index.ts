@@ -1,0 +1,76 @@
+import { Code, Database, Smartphone, Zap } from "lucide-react";
+export const SKILLS = [
+  {
+    icon: Code,
+    title: "Frontend Development",
+    description: "React, Next.js, TypeScript, Tailwind CSS",
+    proficiency: 95,
+    color: "text-primary",
+  },
+  {
+    icon: Database,
+    title: "Backend Development",
+    description: "Node.js, Python, PostgreSQL, MongoDB",
+    proficiency: 88,
+    color: "text-accent",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Development",
+    description: "React Native, Flutter, iOS/Android",
+    proficiency: 78,
+    color: "text-primary",
+  },
+  {
+    icon: Zap,
+    title: "DevOps & Tools",
+    description: "Docker, AWS, CI/CD, Git, Testing",
+    proficiency: 85,
+    color: "text-secondary",
+  },
+];
+
+export const TIMELINEEVENT = [
+  {
+    year: "2025",
+    title: "Full-Stack Developer",
+    company: "Abole Technology plc",
+    location: "Addis Ababa, Ethiopia",
+    type: "work",
+    description:
+      "Built the entire frontend and backend infrastructure from scratch using modern technologies.",
+    achievements: [
+      "Improved app performance by 40%",
+      "Scaled to 10k+ users",
+      "Integrated payment systems",
+    ],
+  },
+  {
+    year: "2024",
+    title: "Full-Stack Development",
+    company: "Teamwork SOftwareplc",
+    location: "Bahir Dar, Ethiopia",
+    type: "work",
+    description:
+      "Specialized in creating responsive, accessible web applications for diverse clients.",
+    achievements: [
+      "Delivered 15+ client projects",
+      "Improved accessibility scores",
+      "Mentored interns",
+    ],
+  },
+  {
+    year: "2023",
+    title: "Computer Science Degree",
+    company: "Bahir Dar University",
+    location: "Bahir Dar, Ethiopia",
+    type: "education",
+    description:
+      "Bachelor's degree with focus on software engineering and cyber security.",
+    achievements: [
+      "Magna Cum Laude",
+      "Dean's List 4 semesters",
+      "Capstone project award",
+    ],
+  },
+];
