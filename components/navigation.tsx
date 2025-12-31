@@ -22,13 +22,8 @@ export function Navigation() {
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 w-full items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">
-                B
-              </span>
-            </div>
-            <span className="font-bold text-xl">Bogale</span>
+          <Link href="/" className="text-2xl font-bold tracking-tighter hover:opacity-80 transition-opacity px-4">
+            BOGALE<span className="text-primary">.</span>
           </Link>
           <div className="container flex items-center justify-end mx-auto px-4 py-4">
             <NavigationMenu className="hidden sm:flex mx-auto">

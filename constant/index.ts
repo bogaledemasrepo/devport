@@ -1,5 +1,8 @@
 import { Code, Database, Smartphone, Zap } from "lucide-react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { VscGithubAlt } from "react-icons/vsc";
+import { RiTelegramLine } from "react-icons/ri";
+import { CiLinkedin } from "react-icons/ci";
 export const SKILLS = [
   {
     icon: Code,
@@ -101,4 +104,24 @@ export const CONTACTDETAIL = [
       content: "Monday - Friday",
       description: "8:00 AM - 5:00 PM PST",
     },
+  ];
+
+  export const FOOTERNAV = [
+        { 
+        title: "Navigation", 
+        links: [
+                    { name: "Home", href: "/" },
+                    { name: "Projects", href: "/projects" },
+                    { name: "About", href: "/about" },
+                    { name: "Contact", href: "/contact" }
+                    ]
+                },
+     { 
+        title: "Socials", 
+        links: [
+                { name: "GitHub", href: "https://github.com/bogaledemasrepo", icon: VscGithubAlt },
+                { name: "LinkedIn", href: "https://linkedin.com/in/bogale-demas", icon: CiLinkedin },
+                { name: "Telegram", href: "https://bogaledemas.t.me", icon: RiTelegramLine }
+                ]
+            }
   ];

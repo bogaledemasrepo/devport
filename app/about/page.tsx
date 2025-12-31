@@ -18,7 +18,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">My Story</h2>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">My <span className="text-primary">Story</span></h2>
               <div className="h-1.5 w-20 bg-primary mx-auto rounded-full mb-8" />
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A journey of curiosity, problem-solving, and continuous growth in the digital landscape.

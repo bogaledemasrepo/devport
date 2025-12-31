@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Bogale Demas — Software Developer",
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased">
+      <body className="antialiased w-full">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -36,10 +37,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
         >
           {/* Flex wrapper ensures footer stays at bottom if you add one later */}
-          <div className="relative flex min-h-screen flex-col">
+          <div className="relative flex min-h-screen flex-col max-w-[1080px] mx-auto">
             <Navigation />
             <main className="flex-1">
               {children}
+              <Footer />
             </main>
           </div>
           <Toaster position="top-center" />

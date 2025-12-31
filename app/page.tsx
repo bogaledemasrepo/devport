@@ -60,7 +60,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/10">
+    <main className="min-h-screen selection:bg-primary/10">
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
@@ -146,7 +146,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-secondary/30 py-24 border-t border-border/40">
+      <section className="py-24 border-t border-border/40">
         <div className="container mx-auto px-6">
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4 tracking-tight">Services</h2>
