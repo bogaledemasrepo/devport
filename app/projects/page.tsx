@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Globe, Github, Code2, Smartphone, Layers, ExternalLink } from "lucide-react";
+import { Globe, Github, Smartphone, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { FadeIn } from "@/components/motion-wrapper";
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
   );
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project }: { project: Project; index: number }) {
   return (
     <motion.div
       layout

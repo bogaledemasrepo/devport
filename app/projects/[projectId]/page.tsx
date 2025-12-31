@@ -1,16 +1,8 @@
 "use client";
 import { Calendar, Users, Award } from "lucide-react";
-import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-interface ProjectType {
-  projectId: string;
-  title: string;
-  address: string;
-  repository: string;
-  description: string;
-}
+
 const ProjectDetailPage = () => {
-  const { projectId } = useParams() as { projectId: string[] };
   const [project, setProject] = useState<Project>();
   useEffect(() => {
     async function fetchProjectDetail() {

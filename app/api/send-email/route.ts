@@ -7,11 +7,6 @@ interface EmailRequest {
   message: string;
 }
 
-interface ApiResponse {
-  message?: string;
-  error?: string;
-}
-
 export async function POST(req: NextRequest) {
 
   try {

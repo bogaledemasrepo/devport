@@ -25,9 +25,9 @@ function GetInTech() {
             <div className="absolute inset-0 bg-primary/[0.02] -z-10" />
             <div className="container mx-auto px-6 text-center">
                 <FadeIn>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Create Together</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Create Together</h2>
                     <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-                        Ready to turn your vision into a scalable digital reality? I'm currently available for new projects and collaborations.
+                        Ready to turn your vision into a scalable digital reality? I&apos;m currently available for new projects and collaborations.
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-6 mb-16">

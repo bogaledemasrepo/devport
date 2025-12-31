@@ -3,8 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Download, ArrowRight } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, Download } from "lucide-react";
 import ServiceCard from "@/components/Service-card";
 import { FadeIn } from "@/components/motion-wrapper"; // Import the motion wrapper
 import { useEffect, useState } from "react";

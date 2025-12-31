@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { toast } from "sonner";
-import { Send, Mail, MapPin, Phone, MessageSquare } from "lucide-react";
+import { Send, MessageSquare } from "lucide-react";
 
 import { FadeIn } from "@/components/motion-wrapper";
 import { Button } from "@/components/ui/button";
@@ -40,6 +39,7 @@ export default function ContactPage() {
         toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {
+      console.log(error)
       toast.error("Failed to connect to the server.");
     } finally {
       setIsSubmitting(false);

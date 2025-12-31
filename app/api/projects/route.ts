@@ -1,10 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import projects from '@/data';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
 
-   const response = await new Promise((res,rej)=>{
+   await new Promise((res,_)=>{
+    console.log(_)
     setTimeout(()=>res(true),1000)
    })
      
@@ -20,10 +21,11 @@ export async function GET(req: NextRequest) {
 
 
 
-export async function POST(req: NextRequest) {
+export async function POST() {
 
   try {
-   const response = await new Promise((res,rej)=>{
+   const response = await new Promise((res,_)=>{
+    console.log(_)
     setTimeout(()=>res(true),1000)
    })
    console.log(response)

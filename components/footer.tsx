@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUp, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { ArrowUp } from "lucide-react";
 import { VscGithubAlt } from "react-icons/vsc";
 import { RiTelegramLine } from "react-icons/ri";
 import { CiLinkedin } from "react-icons/ci";
@@ -29,11 +27,6 @@ export function Footer() {
         staggerChildren: 0.1
       }
     }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0 }
   };
 
   return (

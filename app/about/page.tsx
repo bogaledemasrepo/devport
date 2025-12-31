@@ -2,15 +2,12 @@
 
 import { FadeIn } from "@/components/motion-wrapper";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Award, Calendar, Mail, MapPin, MessageCircle, Quote, ChevronRight } from "lucide-react";
+import { Award, MapPin, Quote, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
 import { SKILLS, TIMELINEEVENT } from "@/constant";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { BookingModal } from "@/components/booking-modal";
 import GetInTech from "@/components/get-in-tech";
 
 export default function AboutPage() {
@@ -45,7 +42,7 @@ export default function AboutPage() {
                    <Card className="bg-primary/[0.03] border-primary/10 rounded-2xl">
                      <CardContent className="p-6 flex gap-4">
                        <Quote className="w-6 h-6 text-primary shrink-0" />
-                       <p className="italic text-muted-foreground">"The best code is not just functional—it's elegant and tells a story."</p>
+                       <p className="italic text-muted-foreground">The best code is not just functional—it&apso;s elegant and tells a story.</p>
                      </CardContent>
                    </Card>
                 </FadeIn>

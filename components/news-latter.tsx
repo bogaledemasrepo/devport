@@ -41,6 +41,7 @@ export function FooterNewsletter() {
         throw new Error("Failed to subscribe");
       }
     } catch (error) {
+      console.log(error)
       toast.error("Subscription failed", {
         description: "Please try again later.",
       });
