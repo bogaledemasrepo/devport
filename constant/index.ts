@@ -1,4 +1,5 @@
 import { Code, Database, Smartphone, Zap } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 export const SKILLS = [
   {
     icon: Code,
@@ -74,3 +75,30 @@ export const TIMELINEEVENT = [
     ],
   },
 ];
+
+export const CONTACTDETAIL = [
+    {
+      icon: Mail,
+      title: "Email",
+      content: "bogidemas@gmail.com",
+      description: "Send us an email anytime",
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      content: "+251923872187",
+      description: "Mon-Fri from 8am to 5pm",
+    },
+    {
+      icon: MapPin,
+      title: "Office",
+      content: "Bole, Gerji",
+      description: "Addis Ababa, Ethiopia",
+    },
+    {
+      icon: Clock,
+      title: "Business Hours",
+      content: "Monday - Friday",
+      description: "8:00 AM - 5:00 PM PST",
+    },
+  ];
