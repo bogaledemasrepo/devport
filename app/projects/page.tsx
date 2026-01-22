@@ -52,7 +52,7 @@ export default function ProjectsPage() {
 
             {/* Category Filter Tabs */}
             <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
-              {["all", "web", "mobile", "backend"].map((cat) => (
+              {["all", "fullstack", "mobile", "backend"].map((cat) => (
                 <Button
                   key={cat}
                   variant={activeCategory === cat ? "default" : "outline"}
