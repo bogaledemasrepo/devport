@@ -73,7 +73,7 @@ export default function ProjectsPage() {
           <AnimatePresence mode="popLayout">
             <motion.div 
               layout
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid lg:grid-cols-2 gap-8"
             >
               {loading ? (
                 Array(3).fill(0).map((_, i) => (
