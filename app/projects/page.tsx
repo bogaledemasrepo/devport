@@ -68,7 +68,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* --- Projects Grid --- */}
-      <section className="mx-auto px-2 sm:px-6 pb-20 lg:py-32">
+      <section className="mx-auto px-2 sm:px-6 pb-20 lg:py-16">
         <div className="max-w-7xl mx-auto">
           <AnimatePresence mode="popLayout">
             <motion.div 
@@ -77,7 +77,7 @@ export default function ProjectsPage() {
             >
               {loading ? (
                 Array(3).fill(0).map((_, i) => (
-                  <div key={i} className="h-[400px] rounded-[2rem] bg-muted animate-pulse" />
+                  <div key={i} className="h-100 rounded-4xl bg-muted animate-pulse" />
                 ))
               ) : filteredProjects.length > 0 ? (
                 filteredProjects.map((project, index) => (
@@ -105,7 +105,7 @@ function ProjectCard({ project }: { project: Project; index: number }) {
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3 }}
     >
-      <Card className="group h-full flex flex-col overflow-hidden rounded-[2rem] border-border/50 bg-card hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
+      <Card className="group h-full flex flex-col overflow-hidden rounded-4xl border-border/50 bg-card hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
         <CardContent className="p-0 flex flex-col h-full">
           {/* Image Area */}
           <div className="relative aspect-video overflow-hidden p-8">
