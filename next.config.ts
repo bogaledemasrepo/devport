@@ -7,15 +7,29 @@ const nextConfig: NextConfig = {
         protocol: 'http',
         hostname: 'localhost',
         port: '3000',
-        pathname: '/**', 
+        pathname: '/**',
       }
       ,
-        {
+      {
         protocol: 'http',
         hostname: 'localhost',
         port: '3000',
-        pathname: '/**', 
+        pathname: '/**',
       }
+      ,
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        port: '',
+        pathname: '/**',
+      } ,
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+        port: '',
+        pathname: '/**',
+      }
+
     ],
   }
 };

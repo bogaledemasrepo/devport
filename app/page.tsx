@@ -110,9 +110,9 @@ export default function Home() {
 
           {/* Right Content - Hero Image with subtle animation */}
           <FadeIn delay={0.2} className="relative flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-[450px] aspect-square group">
+             <div className="relative w-full max-w-112.5 aspect-square group">
                 {/* Decorative Background Element */}
-                <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent rounded-[2rem] blur-2xl group-hover:from-primary/30 transition-all duration-500" />
+                <div className="absolute -inset-4 bg-linear-to-tr from-primary/20 to-transparent rounded-4xl blur-2xl group-hover:from-primary/30 transition-all duration-500" />
                 
                 <Image
                   src="/images/professional-developer-portrait.png"
