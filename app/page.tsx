@@ -21,7 +21,7 @@ export default function Home() {
   const handleCvDownload = () => {
     if (typeof window !== "undefined") {
       const link = document.createElement("a");
-      link.href = "/docs/resume.pdf";
+      link.href = "https://bit.ly/4q4SQJK";
       link.download = "resume.pdf";
       link.click();
     }
