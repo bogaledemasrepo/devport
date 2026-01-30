@@ -1,4 +1,5 @@
 "use client";
+import { Project } from "@/types";
 import { Calendar, Users, Award } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
@@ -15,7 +16,7 @@ const ProjectDetailPage = () => {
 
   return !project ? null : (
     <div className="w-full h-screen flex items-center justify-center">
-      <main className="border border-gray-300 rounded-sm max-w-[600px] mx-auto p-4">
+      <main className="border border-gray-300 rounded-sm max-w-150 mx-auto p-4">
         <div className="space-y-4 mb-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
             <div className="flex items-center gap-2">
