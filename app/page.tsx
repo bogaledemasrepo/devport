@@ -1,56 +1,23 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Download } from "lucide-react";
-import ServiceCard from "@/components/Service-card";
-import { FadeIn } from "@/components/motion-wrapper"; // Import the motion wrapper
-import { useEffect, useState } from "react";
+import { FadeIn } from "@/components/motion-wrapper";
 import { SERVICES } from "@/constant";
+import ServiceCard from "@/components/Service-card";
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
-
-  // This ensures the component only "acts" once it's in the browser
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Avoid running logic like document.createElement outside of useEffect or event handlers
-  const handleCvDownload = () => {
-    if (typeof window !== "undefined") {
-      const link = document.createElement("a");
-      link.href = "https://bit.ly/4q4SQJK";
-      link.download = "resume.pdf";
-      link.click();
-    }
-  };
-
-  // If not mounted, you can return a skeleton or null to prevent mismatch
-  // Or just proceed if your HTML is stable.
-  if (!mounted) return null;
-
-  // const handleCvDownload = () => {
-  //   const link = document.createElement("a");
-  //   link.href = "/docs/resume.pdf";
-  //   link.download = "resume.pdf";
-  //   link.click();
-  // };
-
-  
-
   return (
     <main className="min-h-screen selection:bg-primary/10">
       {/* Hero Section */}
-      <section className="container mx-auto px-2 sm:px-6 py-20 lg:py-32">
+      <section className="container mx-auto px-4 sm:px-6 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           
           {/* Left Content */}
-          <div className="flex flex-col space-y-10">
+          <div className="flex flex-col space-y-8">
             <div className="space-y-4">
               <FadeIn>
-                <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary mb-4">
+                <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
                   Available for new opportunities
                 </div>
               </FadeIn>
@@ -80,12 +47,14 @@ export default function Home() {
             <FadeIn delay={0.4}>
               <div className="flex flex-wrap gap-4">
                 <Button
-                  onClick={handleCvDownload}
                   size="lg"
                   className="rounded-xl h-12 px-8 flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
+                  asChild
                 >
-                  <Download className="w-4 h-4" />
-                  Download CV
+                  <a href="https://bit.ly/4q4SQJK" target="_blank" rel="noopener noreferrer">
+                    <Download className="w-4 h-4" />
+                    Download CV
+                  </a>
                 </Button>
                 <Button variant="outline" size="lg" className="rounded-xl h-12 px-8 border-border/60 hover:bg-secondary" asChild>
                   <Link href="/contact">Hire Me Now!</Link>
@@ -93,30 +62,29 @@ export default function Home() {
               </div>
             </FadeIn>
 
-            {/* Quick Contact - Refined as a simple list instead of a bulky card */}
+            {/* Quick Contact */}
             <FadeIn delay={0.5}>
               <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4 border-t border-border/50">
-                <Link href="mailto:bogidemas@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a href="mailto:bogidemas@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                   <Mail className="w-4 h-4" />
                   bogidemas@gmail.com
-                </Link>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                </a>
+                <a href="tel:+251923872187" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                   <Phone className="w-4 h-4" />
-                  +251923872187
-                </div>
+                  +251 923 872 187
+                </a>
               </div>
             </FadeIn>
           </div>
 
-          {/* Right Content - Hero Image with subtle animation */}
+          {/* Right Content - Hero Image */}
           <FadeIn delay={0.2} className="relative flex justify-center lg:justify-end">
-             <div className="relative w-full max-w-112.5 aspect-square group">
-                {/* Decorative Background Element */}
-                <div className="absolute -inset-4 bg-linear-to-tr from-primary/20 to-transparent rounded-4xl blur-2xl group-hover:from-primary/30 transition-all duration-500" />
+             <div className="relative w-full max-w-md aspect-square group">
+                <div className="absolute -inset-4 bg-linear-to-tr from-primary/20 to-transparent rounded-3xl blur-2xl group-hover:from-primary/30 transition-all duration-500" />
                 
                 <Image
                   src="/images/professional-developer-portrait.png"
-                  alt="Bogale - Software Developer"
+                  alt="Bogale Demas - Software Developer"
                   fill
                   className="object-cover rounded-3xl shadow-2xl relative z-10 border-4 border-background"
                   priority
@@ -127,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="border-t border-border/40 mx-auto px-2 sm:px-6 py-20 lg:py-32">
+      <section className="border-t border-border/40 mx-auto px-4 sm:px-6 py-20 lg:py-32">
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4 tracking-tight">Services</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
