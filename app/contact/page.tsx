@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
-import { Send, MessageSquare } from "lucide-react";
+import { Send, MessageSquare, Loader2 } from "lucide-react";
 
 import { FadeIn } from "@/components/motion-wrapper";
 import { Button } from "@/components/ui/button";
@@ -18,15 +18,23 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    const formData = new FormData(e.currentTarget);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
 
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          subject: `Portfolio Contact: ${formData.get("subject")}`,
-          message: `From: ${formData.get("firstName")} ${formData.get("lastName")} <${formData.get("email")}>\n\n${formData.get("message")}`,
+          subject: `Portfolio Contact: ${subject}`,
+          message: `From: ${firstName} ${lastName} <${email}>\n\n${message}`,
         }),
       });
 
@@ -34,12 +42,12 @@ export default function ContactPage() {
         toast.success("Message sent!", {
           description: "Thank you, Bogale will get back to you shortly.",
         });
-        (e.target as HTMLFormElement).reset();
+        form.reset();
       } else {
         toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.log(error)
+      console.error("Failed to submit contact form:", error);
       toast.error("Failed to connect to the server.");
     } finally {
       setIsSubmitting(false);
@@ -49,20 +57,18 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-background selection:bg-primary/10">
       <div className="container mx-auto px-6 py-20 lg:py-28 max-w-7xl">
-        
         {/* Header Section */}
         <FadeIn className="text-center max-w-3xl mx-auto mb-20">
           <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
             Let&apos;s <span className="text-primary">Connect</span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Have a project in mind or just want to say hi? I&apos;m always open to 
-            discussing new opportunities and innovative ideas.
+            Have a project in mind or just want to say hi? I&apos;m always open
+            to discussing new opportunities and innovative ideas.
           </p>
         </FadeIn>
 
         <div className="grid lg:grid-cols-5 gap-16 items-start">
-          
           {/* Left Side: Info & Cards */}
           <div className="lg:col-span-2 space-y-8">
             <FadeIn delay={0.1}>
@@ -74,7 +80,7 @@ export default function ContactPage() {
 
             <div className="grid gap-4">
               {CONTACTDETAIL.map((detail, index) => (
-                <FadeIn key={index} delay={0.2 + index * 0.1}>
+                <FadeIn key={detail.title || index} delay={0.2 + index * 0.1}>
                   <Card className="group border-border/50 bg-secondary/10 hover:border-primary/30 hover:bg-secondary/20 transition-all duration-300">
                     <CardContent className="p-5 flex items-start gap-4">
                       <div className="bg-background border border-border group-hover:border-primary/50 p-3 rounded-xl transition-colors shadow-sm">
@@ -98,7 +104,10 @@ export default function ContactPage() {
             </div>
 
             {/* Availability Badge */}
-            <FadeIn delay={0.5} className="bg-primary/5 border border-primary/20 rounded-2xl p-6 text-center">
+            <FadeIn
+              delay={0.5}
+              className="bg-primary/5 border border-primary/20 rounded-2xl p-6 text-center"
+            >
               <p className="text-sm font-medium text-primary">
                 Available for freelance projects and full-time roles.
               </p>
@@ -124,6 +133,7 @@ export default function ContactPage() {
                         name="firstName"
                         placeholder="Bogale"
                         required
+                        disabled={isSubmitting}
                         className="h-12 bg-secondary/5 border-border/60 focus:ring-primary rounded-xl"
                       />
                     </div>
@@ -134,6 +144,7 @@ export default function ContactPage() {
                         name="lastName"
                         placeholder="Demas"
                         required
+                        disabled={isSubmitting}
                         className="h-12 bg-secondary/5 border-border/60 focus:ring-primary rounded-xl"
                       />
                     </div>
@@ -147,6 +158,7 @@ export default function ContactPage() {
                       type="email"
                       placeholder="hello@example.com"
                       required
+                      disabled={isSubmitting}
                       className="h-12 bg-secondary/5 border-border/60 focus:ring-primary rounded-xl"
                     />
                   </div>
@@ -158,6 +170,7 @@ export default function ContactPage() {
                       name="subject"
                       placeholder="Project Inquiry"
                       required
+                      disabled={isSubmitting}
                       className="h-12 bg-secondary/5 border-border/60 focus:ring-primary rounded-xl"
                     />
                   </div>
@@ -170,6 +183,7 @@ export default function ContactPage() {
                       placeholder="How can I help you?"
                       rows={5}
                       required
+                      disabled={isSubmitting}
                       className="bg-secondary/5 border-border/60 focus:ring-primary rounded-xl resize-none"
                     />
                   </div>
@@ -180,15 +194,15 @@ export default function ContactPage() {
                     className="w-full h-14 text-lg font-semibold rounded-xl shadow-lg shadow-primary/20 transition-all hover:scale-[1.01]"
                   >
                     {isSubmitting ? (
-                      <div className="flex items-center gap-2">
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" />
+                      <span className="flex items-center gap-2">
+                        <Loader2 className="h-5 w-5 animate-spin" />
                         Sending...
-                      </div>
+                      </span>
                     ) : (
-                      <div className="flex items-center gap-2">
+                      <span className="flex items-center gap-2">
                         <Send className="h-5 w-5" />
                         Send Message
-                      </div>
+                      </span>
                     )}
                   </Button>
                 </form>

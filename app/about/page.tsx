@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, MapPin, Quote, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Progress } from "@/components/ui/progress";
-// import { SKILLS, TIMELINEEVENT } from "@/constants";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import GetInTech from "@/components/get-in-tech";
