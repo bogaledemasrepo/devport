@@ -11,6 +11,7 @@ import { FadeIn } from "@/components/motion-wrapper";
 import YouTubePreview from "@/components/youtube-preview";
 import { Project } from "@/types";
 import Image from "next/image";
+import { ProjectCard } from "@/components/project-card";
 
 const CATEGORIES = ["all", "fullstack", "mobile", "backend"] as const;
 
@@ -111,108 +112,3 @@ export default function ProjectsPage() {
   );
 }
 
-function ProjectCard({ project }: { project: Project; index: number }) {
-  const isMobile = project.category?.toLowerCase() === "mobile";
-
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
-    >
-      <Card className="group h-full flex flex-col overflow-hidden rounded-3xl border-border/50 bg-card hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 p-6">
-        <CardContent className="p-0 flex flex-col h-full">
-          {/* Stabilized Video / Image Container */}
-          <div className="relative aspect-video w-full overflow-hidden border rounded-2xl bg-muted">
-            {project.videoId ? (
-              <YouTubePreview videoId={project.videoId} title={project.title} />
-            ) : (
-              <Image
-                src={project.image || "/placeholder.svg"}
-                fill
-                alt={project.title}
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            )}
-
-            {/* Quick Links Overlay */}
-            <div className="absolute bottom-4 right-4 z-20 flex gap-2 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-              {project.githubUrl && (
-                <Button
-                  size="icon"
-                  variant="secondary"
-                  className="rounded-full shadow-lg h-9 w-9"
-                  asChild
-                >
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} source code on GitHub`}
-                  >
-                    <FaGithub className="w-4 h-4" />
-                  </a>
-                </Button>
-              )}
-              {project.liveUrl && (
-                <Button
-                  size="icon"
-                  className="rounded-full shadow-lg h-9 w-9"
-                  asChild
-                >
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit live demo for ${project.title}`}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </Button>
-              )}
-            </div>
-
-            {/* Subtle Gradient Overlay */}
-            <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
-          </div>
-
-          {/* Text Content */}
-          <div className="pt-6 flex flex-col flex-1">
-            <div className="flex items-center gap-2 mb-3">
-              {isMobile ? (
-                <Smartphone className="w-4 h-4 text-primary" />
-              ) : (
-                <Globe className="w-4 h-4 text-primary" />
-              )}
-              <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">
-                {project.category}
-              </span>
-            </div>
-
-            <h3 className="text-xl font-bold mb-2 tracking-tight">
-              {project.title}
-            </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
-              {project.description}
-            </p>
-
-            <div className="flex flex-wrap gap-1.5">
-              {project.tags?.map((tag: string) => (
-                <Badge
-                  key={tag}
-                  variant="secondary"
-                  className="bg-primary/5 text-primary border-none hover:bg-primary/10 transition-colors px-2.5 py-0.5 rounded-md text-[10px] font-medium"
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-  );
-}
