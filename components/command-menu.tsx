@@ -38,13 +38,13 @@ export function CommandMenu() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="w-full flex items-center justify-between gap-2 text-xs text-muted-foreground bg-secondary/50 border border-border/60 px-3 py-1.5 rounded-full hover:bg-secondary transition-colors"
+        className="text-muted-foreground bg-secondary/50 border-border/60 hover:bg-secondary flex w-full items-center justify-between gap-2 rounded-full border px-3 py-1.5 text-xs transition-colors"
       >
         <div className="flex items-center gap-2 overflow-hidden">
-          <Search className="w-3.5 h-3.5 shrink-0" />
+          <Search className="h-3.5 w-3.5 shrink-0" />
           <span className="truncate">Search portfolio...</span>
         </div>
-        <kbd className="pointer-events-none hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100">
+        <kbd className="bg-muted pointer-events-none hidden h-5 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none sm:inline-flex">
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
@@ -54,29 +54,35 @@ export function CommandMenu() {
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <div className="py-2 w-full flex gap-2 items-center">
-          <CommandGroup className="w-full" heading="Navigation">
-            <CommandItem onSelect={() => runCommand(() => router.push("/"))}>
-              <div className="py-2 flex gap-2 items-center">
-                <Home className="mr-2 h-4 w-4" /> Home
-              </div>
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/projects"))}>
-              <div className="py-2 flex gap-2 items-center">
-                <Folder className="mr-2 h-4 w-4" /> Projects
-              </div>
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/about"))}>
-              <div className="py-2 flex gap-2 items-center">
-                <User className="mr-2 h-4 w-4" /> About & Journey
-              </div>
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => router.push("/contact"))}>
-              <div className="py-2 flex gap-2 items-center">
-                <Mail className="mr-2 h-4 w-4" /> Contact
-              </div>
-            </CommandItem>
-          </CommandGroup>
+          <div className="flex w-full items-center gap-2 py-2">
+            <CommandGroup className="w-full" heading="Navigation">
+              <CommandItem onSelect={() => runCommand(() => router.push("/"))}>
+                <div className="flex items-center gap-2 py-2">
+                  <Home className="mr-2 h-4 w-4" /> Home
+                </div>
+              </CommandItem>
+              <CommandItem
+                onSelect={() => runCommand(() => router.push("/projects"))}
+              >
+                <div className="flex items-center gap-2 py-2">
+                  <Folder className="mr-2 h-4 w-4" /> Projects
+                </div>
+              </CommandItem>
+              <CommandItem
+                onSelect={() => runCommand(() => router.push("/about"))}
+              >
+                <div className="flex items-center gap-2 py-2">
+                  <User className="mr-2 h-4 w-4" /> About & Journey
+                </div>
+              </CommandItem>
+              <CommandItem
+                onSelect={() => runCommand(() => router.push("/contact"))}
+              >
+                <div className="flex items-center gap-2 py-2">
+                  <Mail className="mr-2 h-4 w-4" /> Contact
+                </div>
+              </CommandItem>
+            </CommandGroup>
           </div>
         </CommandList>
       </CommandDialog>

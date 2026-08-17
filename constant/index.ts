@@ -80,69 +80,84 @@ export const TIMELINEEVENT = [
 ];
 
 export const CONTACTDETAIL = [
-    {
-      icon: Mail,
-      title: "Email",
-      content: "bogidemas@gmail.com",
-      description: "Send us an email anytime",
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      content: "+251923872187",
-      description: "Mon-Fri from 8am to 5pm",
-    },
-    {
-      icon: MapPin,
-      title: "Office",
-      content: "Bole, Gerji",
-      description: "Addis Ababa, Ethiopia",
-    },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      content: "Monday - Friday",
-      description: "8:00 AM - 5:00 PM PST",
-    },
-  ];
+  {
+    icon: Mail,
+    title: "Email",
+    content: "bogidemas@gmail.com",
+    description: "Send us an email anytime",
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    content: "+251923872187",
+    description: "Mon-Fri from 8am to 5pm",
+  },
+  {
+    icon: MapPin,
+    title: "Office",
+    content: "Bole, Gerji",
+    description: "Addis Ababa, Ethiopia",
+  },
+  {
+    icon: Clock,
+    title: "Business Hours",
+    content: "Monday - Friday",
+    description: "8:00 AM - 5:00 PM PST",
+  },
+];
 
-  export const FOOTERNAV = [
-        { 
-        title: "Navigation", 
-        links: [
-                    { name: "Home", href: "/" },
-                    { name: "Projects", href: "/projects" },
-                    { name: "About", href: "/about" },
-                    { name: "Contact", href: "/contact" }
-                    ]
-                },
-     { 
-        title: "Socials", 
-        links: [
-                { name: "GitHub", href: "https://github.com/bogaledemasrepo", icon: VscGithubAlt },
-                { name: "LinkedIn", href: "https://linkedin.com/in/bogale-demas", icon: CiLinkedin },
-                { name: "Telegram", href: "https://bogaledemas.t.me", icon: RiTelegramLine }
-                ]
-            }
-  ];
+export const FOOTERNAV = [
+  {
+    title: "Navigation",
+    links: [
+      { name: "Home", href: "/" },
+      { name: "Projects", href: "/projects" },
+      { name: "About", href: "/about" },
+      { name: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Socials",
+    links: [
+      {
+        name: "GitHub",
+        href: "https://github.com/bogaledemasrepo",
+        icon: VscGithubAlt,
+      },
+      {
+        name: "LinkedIn",
+        href: "https://linkedin.com/in/bogale-demas",
+        icon: CiLinkedin,
+      },
+      {
+        name: "Telegram",
+        href: "https://bogaledemas.t.me",
+        icon: RiTelegramLine,
+      },
+    ],
+  },
+];
 
-export  const SERVICES = [
-      {
-        title: "Backend Development",
-        description: "Robust, scalable server-side systems using Spring Boot and Node.js. Focused on performance and event-driven architecture.",
-        icon: `/backend-server-icon.png`,
-        link: "/projects/?filter=backend",
-      },
-      {
-        title: "Frontend Development",
-        description: "Modern, performant UIs with React and Tailwind CSS. Crafting modular, responsive experiences with precision.",
-        icon: `/frontend-icon.jpeg`,
-        link: "/projects/?filter=frontend",
-      },
-      {
-        title: "Mobile App Development",
-        description: "Native-like iOS and Android apps using React Native. Seamless integration and intuitive UX from a single codebase.",
-        icon: `/mobile-development.jpg`,
-        link: "/projects/?filter=mobile",
-      },
-    ];
+export const SERVICES = [
+  {
+    title: "Backend Development",
+    description:
+      "Robust, scalable server-side systems using Spring Boot and Node.js. Focused on performance and event-driven architecture.",
+    icon: `/backend-server-icon.png`,
+    link: "/projects/?filter=backend",
+  },
+  {
+    title: "Frontend Development",
+    description:
+      "Modern, performant UIs with React and Tailwind CSS. Crafting modular, responsive experiences with precision.",
+    icon: `/frontend-icon.jpeg`,
+    link: "/projects/?filter=frontend",
+  },
+  {
+    title: "Mobile App Development",
+    description:
+      "Native-like iOS and Android apps using React Native. Seamless integration and intuitive UX from a single codebase.",
+    icon: `/mobile-development.jpg`,
+    link: "/projects/?filter=mobile",
+  },
+];

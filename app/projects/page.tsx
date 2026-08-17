@@ -49,27 +49,27 @@ export default function ProjectsPage() {
   }, [projects, activeCategory]);
 
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/20">
+    <div className="bg-background selection:bg-primary/20 min-h-screen">
       {/* Header Section */}
       <section className="mx-auto px-6 pt-20 lg:pt-32">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <FadeIn>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+            <h1 className="mb-6 text-4xl font-extrabold tracking-tight md:text-6xl">
               Proven <span className="text-primary">Solutions</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+            <p className="text-muted-foreground mx-auto mb-10 max-w-2xl text-lg">
               A collection of technical challenges turned into functional,
               scalable, and aesthetic digital products.
             </p>
 
             {/* Category Filter Tabs */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
+            <div className="mb-8 flex flex-wrap justify-center gap-2 md:mb-12">
               {CATEGORIES.map((cat) => (
                 <Button
                   key={cat}
                   variant={activeCategory === cat ? "default" : "outline"}
                   onClick={() => setActiveCategory(cat)}
-                  className="rounded-full capitalize px-4 transition-all duration-300"
+                  className="rounded-full px-4 capitalize transition-all duration-300"
                 >
                   {cat}
                 </Button>
@@ -80,15 +80,15 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="mx-auto px-4 sm:px-6 pb-20 lg:py-16">
-        <div className="max-w-7xl mx-auto">
+      <section className="mx-auto px-4 pb-20 sm:px-6 lg:py-16">
+        <div className="mx-auto max-w-7xl">
           <AnimatePresence mode="popLayout">
-            <motion.div layout className="grid lg:grid-cols-2 gap-8">
+            <motion.div layout className="grid gap-8 lg:grid-cols-2">
               {loading ? (
                 Array.from({ length: 4 }).map((_, i) => (
                   <div
                     key={`skeleton-${i}`}
-                    className="h-105 rounded-3xl bg-muted/60 animate-pulse"
+                    className="bg-muted/60 h-105 animate-pulse rounded-3xl"
                   />
                 ))
               ) : filteredProjects.length > 0 ? (
@@ -100,7 +100,7 @@ export default function ProjectsPage() {
                   />
                 ))
               ) : (
-                <div className="col-span-full py-20 text-center text-muted-foreground">
+                <div className="text-muted-foreground col-span-full py-20 text-center">
                   No projects found in this category.
                 </div>
               )}
@@ -111,4 +111,3 @@ export default function ProjectsPage() {
     </div>
   );
 }
-

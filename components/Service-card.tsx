@@ -23,21 +23,21 @@ export default function ServiceCard({
   link,
 }: ServiceCardProps) {
   return (
-    <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+    <Card className="h-full transition-shadow duration-300 hover:shadow-lg">
       <CardHeader className="text-center">
-        <div className="mx-auto mb-4 relative  w-20 h-20">
+        <div className="relative mx-auto mb-4 h-20 w-20">
           <Image
             src={icon}
             alt={title}
             fill
             objectFit="cover"
-            className="object-contain rounded-lg"
+            className="rounded-lg object-contain"
           />
         </div>
         <CardTitle className="text-xl font-semibold">{title}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        <CardDescription className="text-sm leading-relaxed line-clamp-6">
+        <CardDescription className="line-clamp-6 text-sm leading-relaxed">
           {description}
         </CardDescription>
         <Button asChild variant="outline" className="w-full bg-transparent">

@@ -26,15 +26,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
     >
-      <Card className="group h-full flex flex-col overflow-hidden rounded-3xl border border-border/50 bg-card hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 p-6">
-        <CardContent className="p-0 flex flex-col h-full">
-          
+      <Card className="group border-border/50 bg-card hover:border-primary/40 hover:shadow-primary/5 flex h-full flex-col overflow-hidden rounded-3xl border p-6 transition-all duration-300 hover:shadow-xl">
+        <CardContent className="flex h-full flex-col p-0">
           {/* Media Header with Subtle Overlay */}
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-muted border border-border/40">
+          <div className="bg-muted border-border/40 relative aspect-video w-full overflow-hidden rounded-2xl border">
             {project.videoId ? (
               <YouTubePreview videoId={project.videoId} title={project.title} />
             ) : (
-              <div className="relative w-full h-full overflow-hidden">
+              <div className="relative h-full w-full overflow-hidden">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   fill
@@ -46,12 +45,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
             )}
 
             {/* Quick Link Buttons */}
-            <div className="absolute bottom-3 right-3 z-20 flex gap-2 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+            <div className="absolute right-3 bottom-3 z-20 flex translate-y-2 gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               {project.githubUrl && (
                 <Button
                   size="icon"
                   variant="secondary"
-                  className="rounded-full shadow-md h-9 w-9 backdrop-blur-md bg-background/80 hover:bg-background"
+                  className="bg-background/80 hover:bg-background h-9 w-9 rounded-full shadow-md backdrop-blur-md"
                   asChild
                 >
                   <a
@@ -60,14 +59,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     rel="noopener noreferrer"
                     aria-label={`View ${project.title} source code`}
                   >
-                    <FaGithub className="w-4 h-4" />
+                    <FaGithub className="h-4 w-4" />
                   </a>
                 </Button>
               )}
               {project.liveUrl && (
                 <Button
                   size="icon"
-                  className="rounded-full shadow-md h-9 w-9"
+                  className="h-9 w-9 rounded-full shadow-md"
                   asChild
                 >
                   <a
@@ -76,7 +75,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     rel="noopener noreferrer"
                     aria-label={`Visit live demo for ${project.title}`}
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
               )}
@@ -84,42 +83,42 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {/* Project Details */}
-          <div className="pt-5 flex flex-col flex-1">
-            <div className="flex items-center justify-between mb-2">
+          <div className="flex flex-1 flex-col pt-5">
+            <div className="mb-2 flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 {isMobile ? (
-                  <Smartphone className="w-3.5 h-3.5 text-primary" />
+                  <Smartphone className="text-primary h-3.5 w-3.5" />
                 ) : (
-                  <Globe className="w-3.5 h-3.5 text-primary" />
+                  <Globe className="text-primary h-3.5 w-3.5" />
                 )}
-                <span className="text-[11px] uppercase tracking-wider font-bold text-muted-foreground">
+                <span className="text-muted-foreground text-[11px] font-bold tracking-wider uppercase">
                   {project.category}
                 </span>
               </div>
 
               {project.liveUrl && (
-                <span className="inline-flex items-center gap-1 text-[11px] text-emerald-500 font-medium">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-500">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
                   Live
                 </span>
               )}
             </div>
 
-            <h3 className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
+            <h3 className="group-hover:text-primary mb-2 text-xl font-bold tracking-tight transition-colors">
               {project.title}
             </h3>
 
-            <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1 line-clamp-3">
+            <p className="text-muted-foreground mb-5 line-clamp-3 flex-1 text-sm leading-relaxed">
               {project.description}
             </p>
 
             {/* Tech Stack Pills */}
-            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border/40">
+            <div className="border-border/40 flex flex-wrap gap-1.5 border-t pt-2">
               {project.tags?.map((tag: string) => (
                 <Badge
                   key={tag}
                   variant="secondary"
-                  className="bg-secondary/60 text-foreground/80 border-none px-2.5 py-0.5 rounded-md text-[11px] font-medium"
+                  className="bg-secondary/60 text-foreground/80 rounded-md border-none px-2.5 py-0.5 text-[11px] font-medium"
                 >
                   {tag}
                 </Badge>

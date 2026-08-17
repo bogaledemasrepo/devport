@@ -1,7 +1,12 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import * as React from "react";
-import { Dialog, DialogContent, DialogOverlay, type DialogProps } from "@radix-ui/react-dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogOverlay,
+  type DialogProps,
+} from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 
@@ -14,7 +19,7 @@ const Command = React.forwardRef<
   <CommandPrimitive
     ref={ref}
     className={cn(
-      "flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground",
+      "bg-popover text-popover-foreground flex h-full w-full flex-col overflow-hidden rounded-md",
       className
     )}
     {...props}
@@ -28,7 +33,7 @@ const CommandDialog = ({ children, ...props }: DialogProps) => {
       {/* Portal attaches the overlay straight to body, ignoring parent DOM layout */}
       <DialogPrimitive.Portal>
         <DialogOverlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" />
-        <DialogContent className="fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border bg-background p-0 shadow-2xl sm:rounded-2xl">
+        <DialogContent className="bg-background fixed top-[50%] left-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border p-0 shadow-2xl sm:rounded-2xl">
           <Command className="**:[[cmdk-group-heading]]:px-2 **:[[cmdk-input]]:h-12">
             {children}
           </Command>
@@ -47,7 +52,7 @@ const CommandInput = React.forwardRef<
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+        "placeholder:text-muted-foreground flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -62,7 +67,7 @@ const CommandList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <CommandPrimitive.List
     ref={ref}
-    className={cn("max-h-75 overflow-y-auto overflow-x-hidden", className)}
+    className={cn("max-h-75 overflow-x-hidden overflow-y-auto", className)}
     {...props}
   />
 ));
@@ -87,7 +92,7 @@ const CommandGroup = React.forwardRef<
   <CommandPrimitive.Group
     ref={ref}
     className={cn(
-      "overflow-hidden p-1 text-foreground **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground",
+      "text-foreground **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden p-1 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium",
       className
     )}
     {...props}
@@ -102,7 +107,7 @@ const CommandItem = React.forwardRef<
   <CommandPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50",
+      "data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground relative flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
       className
     )}
     {...props}

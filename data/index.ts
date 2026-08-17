@@ -1,67 +1,89 @@
- const data=[
-  
-   {
+const data = [
+  {
     id: 1,
     title: "Desserts Web Application",
-    category:"fullstack",
-    description: "Full-stack e-commerce application built with the Next.js App Router, Supabase, and Stripe for seamless shopping experience.",
-    longDescription:"Built a comprehensive e-commerce platform featuring authentication and authorization, advanced product filtering, secure payment processing with Stripe. Implemented server-side rendering for optimal SEO and performance.",
+    category: "fullstack",
+    description:
+      "Full-stack e-commerce application built with the Next.js App Router, Supabase, and Stripe for seamless shopping experience.",
+    longDescription:
+      "Built a comprehensive e-commerce platform featuring authentication and authorization, advanced product filtering, secure payment processing with Stripe. Implemented server-side rendering for optimal SEO and performance.",
     image: "placeholder.svg",
-    youtubeAddress:"",
-    tags: ["Next.js16","Typescript", "Supabase", "Stripe", "api route","Postgres"],
+    youtubeAddress: "",
+    tags: [
+      "Next.js16",
+      "Typescript",
+      "Supabase",
+      "Stripe",
+      "api route",
+      "Postgres",
+    ],
     featured: true,
     liveUrl: "https://desserts-lime.vercel.app/",
     githubUrl: "https://github.com/bogaledemasrepo/Desserts-Web-Application",
     duration: "7 day",
     teamSize: "1",
     achievements: [],
-    challenges: "Optimizing performance for large product catalogs and implementing complex filtering logic",
+    challenges:
+      "Optimizing performance for large product catalogs and implementing complex filtering logic",
     technologies: {
       frontend: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      backend: ["Nextjs", "Supabase", "Stripe","Oauth2"],
+      backend: ["Nextjs", "Supabase", "Stripe", "Oauth2"],
       deployment: ["Vercel"],
     },
   },
   {
     id: 2,
     title: "RN-Recipe Application",
-    category:"mobile",
-    description: "RN-Recipes is a premium, high-performance recipe application built with React Native and Expo. ",
-    longDescription:"RN-Recipes is a premium, high-performance recipe application built with React Native and Expo. It provides a seamless user experience for exploring global cuisines, featuring high-fidelity UI animations, YouTube integration, and a native sharing system.",
+    category: "mobile",
+    description:
+      "RN-Recipes is a premium, high-performance recipe application built with React Native and Expo. ",
+    longDescription:
+      "RN-Recipes is a premium, high-performance recipe application built with React Native and Expo. It provides a seamless user experience for exploring global cuisines, featuring high-fidelity UI animations, YouTube integration, and a native sharing system.",
     image: "placeholder.svg",
-    tags: ["React Native","Typescript", "Expo", "API"],
+    tags: ["React Native", "Typescript", "Expo", "API"],
     liveUrl: "#",
-    youtubeAddress:"",
+    youtubeAddress: "",
     githubUrl: "https://github.com/bogaledemasrepo/RN-Recipes",
     duration: "1 week",
     teamSize: "1 developer",
-    achievements: ["Implemented high-fidelity animations for enhanced user experience", "Integrated YouTube API for video recipes", "Developed native sharing functionality"],
-    challenges: "Ensuring smooth performance across various devices and optimizing API calls for faster load times",
+    achievements: [
+      "Implemented high-fidelity animations for enhanced user experience",
+      "Integrated YouTube API for video recipes",
+      "Developed native sharing functionality",
+    ],
+    challenges:
+      "Ensuring smooth performance across various devices and optimizing API calls for faster load times",
     technologies: {
       frontend: ["React Native", "TypeScript", "Expo"],
-      backend: ["Third-party APIs","TheMealDB API"],
-      deployment: ["Expo Go","Firebase"],
+      backend: ["Third-party APIs", "TheMealDB API"],
+      deployment: ["Expo Go", "Firebase"],
     },
   },
   {
     id: 3,
     title: "Meri Spare Part",
-    category:"mobile",
-    description: "Telebirr Super App mini-program—a specialized E-commerce platform designed for the vehicle spare parts industry in Ethiopia.",
-    longDescription:"Telebirr Super App mini-program—a specialized E-commerce platform designed for the vehicle spare parts industry in Ethiopia. Buying the right spare part can be a challenge. This application simplifies the process by allowing users to browse, filter, and purchase genuine vehicle components directly within the Telebirr ecosystem. Built using the Mackle (MA) framework, the app is optimized for speed, security, and a seamless user experience.",
+    category: "mobile",
+    description:
+      "Telebirr Super App mini-program—a specialized E-commerce platform designed for the vehicle spare parts industry in Ethiopia.",
+    longDescription:
+      "Telebirr Super App mini-program—a specialized E-commerce platform designed for the vehicle spare parts industry in Ethiopia. Buying the right spare part can be a challenge. This application simplifies the process by allowing users to browse, filter, and purchase genuine vehicle components directly within the Telebirr ecosystem. Built using the Mackle (MA) framework, the app is optimized for speed, security, and a seamless user experience.",
     image: "placeholder.svg",
-    tags: ["Mackle","Wechat", "XML", "CSS"],
+    tags: ["Mackle", "Wechat", "XML", "CSS"],
     liveUrl: "#",
-    videoId:"02C4F9RHVYc",
+    videoId: "02C4F9RHVYc",
     githubUrl: "https://github.com/bogaledemasrepo/RN-Recipes",
     duration: "4 month",
     teamSize: "1 developer",
-    achievements: ["Implemented high-fidelity animations for enhanced user experience", "Developed native sharing functionality"],
-    challenges: "Ensuring smooth performance across various devices and optimizing API calls for faster load times",
+    achievements: [
+      "Implemented high-fidelity animations for enhanced user experience",
+      "Developed native sharing functionality",
+    ],
+    challenges:
+      "Ensuring smooth performance across various devices and optimizing API calls for faster load times",
     technologies: {
-      frontend: ["Mackle","Wechat", "XML", "CSS"],
-      backend: ["RestFull API","TheMealDB API"],
-      deployment: ["Tele-birr","Tele-birr Supper App"],
+      frontend: ["Mackle", "Wechat", "XML", "CSS"],
+      backend: ["RestFull API", "TheMealDB API"],
+      deployment: ["Tele-birr", "Tele-birr Supper App"],
     },
   },
   // {
@@ -106,6 +128,6 @@
   //     deployment: ["Expo", "AWS ECS", "RDS"],
   //   },
   // },
-]
+];
 
 export default data;

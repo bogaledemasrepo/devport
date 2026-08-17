@@ -12,7 +12,7 @@ export function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-0.75 bg-primary z-50 origin-left"
+      className="bg-primary fixed top-0 right-0 left-0 z-50 h-0.75 origin-left"
       style={{ scaleX }}
     />
   );

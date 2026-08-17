@@ -41,7 +41,7 @@ export function FooterNewsletter() {
         throw new Error("Failed to subscribe");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error("Subscription failed", {
         description: "Please try again later.",
       });
@@ -52,27 +52,27 @@ export function FooterNewsletter() {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-sm font-bold uppercase tracking-widest text-foreground">
+      <h3 className="text-foreground text-sm font-bold tracking-widest uppercase">
         Newsletter
       </h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">
+      <p className="text-muted-foreground text-sm leading-relaxed">
         Get notified about new projects and tech insights.
       </p>
-      
+
       <form className="flex gap-2" onSubmit={handleSubscribeToNewsletter}>
-        <Input 
+        <Input
           ref={emailRef}
           type="email"
           name="email"
-          placeholder="Email address" 
+          placeholder="Email address"
           disabled={isSubmitting}
-          className="bg-secondary/30 border-border/60 rounded-xl focus-visible:ring-primary h-11"
+          className="bg-secondary/30 border-border/60 focus-visible:ring-primary h-11 rounded-xl"
         />
-        <Button 
-          type="submit" 
-          size="icon" 
+        <Button
+          type="submit"
+          size="icon"
           disabled={isSubmitting}
-          className="shrink-0 rounded-xl shadow-lg shadow-primary/20 h-11 w-11 transition-all active:scale-95"
+          className="shadow-primary/20 h-11 w-11 shrink-0 rounded-xl shadow-lg transition-all active:scale-95"
         >
           {isSubmitting ? (
             <Loader2 size={18} className="animate-spin" />

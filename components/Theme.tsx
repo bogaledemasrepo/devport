@@ -7,16 +7,16 @@ function Theme() {
       onClick={() => {
         document.documentElement.classList.toggle("dark");
       }}
-      className="font-semibold dark:text-slate-400 transition-all duration-300 text-[#342c3d76] border border-slate-300 dark:border-slate-700 hover:blur-[1px] py-1 px-2"
+      className="border border-slate-300 px-2 py-1 font-semibold text-[#342c3d76] transition-all duration-300 hover:blur-[1px] dark:border-slate-700 dark:text-slate-400"
     >
       <div className="">
         <span
-          className={`icon-[tabler--moon] dark:hidden flex self-center size-6 font-bold`}
+          className={`icon-[tabler--moon] flex size-6 self-center font-bold dark:hidden`}
         ></span>
       </div>
-      <div className=" hover:text-slate-500 border border-transparent dark:text-slate-300">
+      <div className="border border-transparent hover:text-slate-500 dark:text-slate-300">
         <span
-          className={`icon-[tabler--sun] hidden dark:flex self-center size-6 font-bold`}
+          className={`icon-[tabler--sun] hidden size-6 self-center font-bold dark:flex`}
         ></span>
       </div>
     </button>
