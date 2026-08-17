@@ -1,7 +1,7 @@
 "use client";
-
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import * as React from "react";
-import { Dialog, DialogContent, type DialogProps } from "@radix-ui/react-dialog";
+import { Dialog, DialogContent, DialogOverlay, type DialogProps } from "@radix-ui/react-dialog";
 import { Command as CommandPrimitive } from "cmdk";
 import { Search } from "lucide-react";
 
@@ -25,11 +25,15 @@ Command.displayName = CommandPrimitive.displayName;
 const CommandDialog = ({ children, ...props }: DialogProps) => {
   return (
     <Dialog {...props}>
-      <DialogContent className="overflow-hidden p-0 shadow-lg">
-        <Command className="**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 **:[[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 **:[[cmdk-input]]:h-12 **:[[cmdk-item]]:px-2 **:[[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
-          {children}
-        </Command>
-      </DialogContent>
+      {/* Portal attaches the overlay straight to body, ignoring parent DOM layout */}
+      <DialogPrimitive.Portal>
+        <DialogOverlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" />
+        <DialogContent className="fixed left-[50%] top-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] border bg-background p-0 shadow-2xl sm:rounded-2xl">
+          <Command className="**:[[cmdk-group-heading]]:px-2 **:[[cmdk-input]]:h-12">
+            {children}
+          </Command>
+        </DialogContent>
+      </DialogPrimitive.Portal>
     </Dialog>
   );
 };
