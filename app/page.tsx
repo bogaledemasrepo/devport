@@ -5,6 +5,7 @@ import { Mail, Phone, Download } from "lucide-react";
 import { FadeIn } from "@/components/motion-wrapper";
 import { SERVICES } from "@/constant";
 import ServiceCard from "@/components/Service-card";
+import { TerminalCard } from "@/components/terminal-card";
 
 export default function Home() {
   return (
@@ -111,6 +112,22 @@ export default function Home() {
             ))}
           </div>
       </section>
+      {/* <section className="py-20 px-6 max-w-6xl mx-auto text-center space-y-8">
+        <FadeIn>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+            Building digital products with <span className="text-primary">precision</span>.
+          </h1>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Full-stack developer specializing in modern web applications, scalable APIs, and seamless user experiences.
+          </p>
+        </FadeIn>
+
+        <FadeIn delay={0.2}>
+          <div className="pt-6">
+            <TerminalCard />
+          </div>
+        </FadeIn>
+      </section> */}
     </main>
   );
 }

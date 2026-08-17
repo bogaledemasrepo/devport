@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { CommandMenu } from "@/components/command-menu";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 export const metadata: Metadata = {
   title: "Bogale Demas — Software Developer",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
+          
           {/* Flex wrapper ensures footer stays at bottom if you add one later */}
           <div className="relative flex min-h-screen flex-col max-w-270 mx-auto">
             <Navigation />

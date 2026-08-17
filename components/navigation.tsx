@@ -15,15 +15,17 @@ import { Button } from "./ui/button";
 import { Menu, Moon, Sun } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { CommandMenu } from "./command-menu";
+import { ScrollProgress } from "./scroll-progress";
 
 export function Navigation() {
   const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
+  return (<>
+
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="container flex h-16 w-full items-center justify-between gap-4 px-4 sm:px-8 mx-auto">
-        
+        <ScrollProgress />
         {/* Brand Logo */}
         <Link
           href="/"
@@ -98,5 +100,6 @@ export function Navigation() {
 
       </div>
     </header>
+  </>
   );
 }
