@@ -5,10 +5,8 @@ import path from "path";
 export default defineConfig({
   plugins: [react()],
   test: {
-    globals: true,
     environment: "jsdom",
-    // Adding this helps prevent "document is not defined" in some Bun environments
-    pool: "vmThreads",
+    globals: true,
     setupFiles: "./vitest.setup.ts",
   },
   resolve: {
