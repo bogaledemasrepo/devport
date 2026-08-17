@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
         >
           {/* Flex wrapper ensures footer stays at bottom if you add one later */}
-          <div className="relative flex min-h-screen flex-col max-w-[1080px] mx-auto">
+          <div className="relative flex min-h-screen flex-col max-w-270 mx-auto">
             <Navigation />
             <main className="flex-1">
               {children}
