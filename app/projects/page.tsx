@@ -1,46 +1,55 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Globe, Github, Smartphone, ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
+import { Globe, Smartphone, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/motion-wrapper";
 import YouTubePreview from "@/components/youtube-preview";
 import { Project } from "@/types";
 import Image from "next/image";
 
+const CATEGORIES = ["all", "fullstack", "mobile", "backend"] as const;
+
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState<string>("all");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/projects`)
+    let isSubscribed = true;
+
+    fetch("/api/projects")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        setProjects(data);
-        setFilteredProjects(data);
-        setLoading(false);
+        if (isSubscribed) {
+          setProjects(data);
+          setLoading(false);
+        }
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        if (isSubscribed) setLoading(false);
+      });
+
+    return () => {
+      isSubscribed = false;
+    };
   }, []);
 
-  const filterProjects = (category: string) => {
-    setActiveCategory(category);
-    if (category === "all") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter((p) => p.category.toLowerCase() === category.toLowerCase()));
-    }
-  };
+  // Compute filtered projects using memoization to prevent unnecessary recalculations
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === "all") return projects;
+    return projects.filter(
+      (p) => p.category?.toLowerCase() === activeCategory.toLowerCase()
+    );
+  }, [projects, activeCategory]);
 
   return (
     <div className="min-h-screen bg-background selection:bg-primary/20">
-      {/* --- Header Section --- */}
+      {/* Header Section */}
       <section className="mx-auto px-6 pt-20 lg:pt-32">
         <div className="max-w-6xl mx-auto text-center">
           <FadeIn>
@@ -54,11 +63,11 @@ export default function ProjectsPage() {
 
             {/* Category Filter Tabs */}
             <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
-              {["all", "fullstack", "mobile", "backend"].map((cat) => (
+              {CATEGORIES.map((cat) => (
                 <Button
                   key={cat}
                   variant={activeCategory === cat ? "default" : "outline"}
-                  onClick={() => filterProjects(cat)}
+                  onClick={() => setActiveCategory(cat)}
                   className="rounded-full capitalize px-4 transition-all duration-300"
                 >
                   {cat}
@@ -69,21 +78,25 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* --- Projects Grid --- */}
-      <section className="mx-auto px-2 sm:px-6 pb-20 lg:py-16">
+      {/* Projects Grid */}
+      <section className="mx-auto px-4 sm:px-6 pb-20 lg:py-16">
         <div className="max-w-7xl mx-auto">
           <AnimatePresence mode="popLayout">
-            <motion.div
-              layout
-              className="grid lg:grid-cols-2 gap-8"
-            >
+            <motion.div layout className="grid lg:grid-cols-2 gap-8">
               {loading ? (
-                Array(3).fill(0).map((_, i) => (
-                  <div key={i} className="h-100 rounded-4xl bg-muted animate-pulse" />
+                Array.from({ length: 4 }).map((_, i) => (
+                  <div
+                    key={`skeleton-${i}`}
+                    className="h-105 rounded-3xl bg-muted/60 animate-pulse"
+                  />
                 ))
               ) : filteredProjects.length > 0 ? (
                 filteredProjects.map((project, index) => (
-                  <ProjectCard key={project.title} project={project} index={index} />
+                  <ProjectCard
+                    key={project.id || project.title}
+                    project={project}
+                    index={index}
+                  />
                 ))
               ) : (
                 <div className="col-span-full py-20 text-center text-muted-foreground">
@@ -98,73 +111,9 @@ export default function ProjectsPage() {
   );
 }
 
-// function ProjectCard({ project }: { project: Project; index: number }) {
-//   return (
-//     <motion.div
-//       layout
-//       initial={{ opacity: 0, scale: 0.9 }}
-//       animate={{ opacity: 1, scale: 1 }}
-//       exit={{ opacity: 0, scale: 0.9 }}
-//       transition={{ duration: 0.3 }}
-//     >
-//       <Card className="group h-full flex flex-col overflow-hidden rounded-4xl border-border/50 bg-card hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500">
-//         <CardContent className="p-0 flex flex-col h-full">
-//           {/* Image Area */}
-//           <div className="relative aspect-video overflow-hidden p-8 mx-6 rounded-2xl">
-//             <YouTubePreview videoId={"02C4F9RHVYc"} title={"Some title"} />
-// <Image
-//   src={project.image || "placeholder.svg"}
-//   fill
-//   alt={project.title}
-//   className="object-cover transition-transform duration-700 group-hover:scale-110"
-// /> 
-//             <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/40 transition-colors duration-500" />
-
-//             {/* Quick Links Overlay */}
-//             <div className="absolute bottom-4 right-4 flex gap-2 translate-y-12 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-//               <Button size="icon" variant="secondary" className="rounded-full shadow-lg" asChild>
-//                 <a href={project.githubUrl} target="_blank"><Github className="w-4 h-4" /></a>
-//               </Button>
-//               <Button size="icon" className="rounded-full shadow-lg" asChild>
-//                 <a href={project.liveUrl} target="_blank"><ExternalLink className="w-4 h-4" /></a>
-//               </Button>
-//             </div>
-//           </div>
-
-//           {/* Text Content */}
-//           <div className="p-7 flex flex-col flex-1">
-//             <div className="flex items-center gap-2 mb-3">
-//               {project.category === "mobile" ? <Smartphone className="w-4 h-4 text-primary" /> : <Globe className="w-4 h-4 text-primary" />}
-//               <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground">
-//                 {project.category}
-//               </span>
-//             </div>
-
-//             <h3 className="text-2xl font-bold mb-3 tracking-tight">{project.title}</h3>
-//             <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
-//               {project.description}
-//             </p>
-
-//             {/* FIXED BADGE SECTION */}
-//             <div className="flex flex-wrap gap-2">
-//               {project.tags.map((tag) => (
-//                 <Badge
-//                   key={tag}
-//                   className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 transition-colors px-3 py-0.5 rounded-full text-[11px] font-semibold"
-//                 >
-//                   {tag}
-//                 </Badge>
-//               ))}
-//             </div>
-//           </div>
-//         </CardContent>
-//       </Card>
-//     </motion.div>
-//   );
-// }
-
-
 function ProjectCard({ project }: { project: Project; index: number }) {
+  const isMobile = project.category?.toLowerCase() === "mobile";
+
   return (
     <motion.div
       layout
@@ -173,45 +122,79 @@ function ProjectCard({ project }: { project: Project; index: number }) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
     >
-      <Card className="group h-full flex flex-col overflow-hidden rounded-4xl border-border/50 bg-card hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 p-6">
+      <Card className="group h-full flex flex-col overflow-hidden rounded-3xl border-border/50 bg-card hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 p-6">
         <CardContent className="p-0 flex flex-col h-full">
+          {/* Stabilized Video / Image Container */}
+          <div className="relative aspect-video w-full overflow-hidden border rounded-2xl bg-muted">
+            {project.videoId ? (
+              <YouTubePreview videoId={project.videoId} title={project.title} />
+            ) : (
+              <Image
+                src={project.image || "/placeholder.svg"}
+                fill
+                alt={project.title}
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            )}
 
-          {/* Stabilized Video Container */}
-          <div className="relative aspect-video w-full overflow-hidden border rounded-2xl">
-            {project.videoId ?
-             <YouTubePreview videoId={"02C4F9RHVYc"} title={project.title} /> : <Image
-              src={project.image || "placeholder.svg"}
-              fill
-              alt={project.title}
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-            />}
-
-
-
-            {/* Quick Links - Using pointer-events-auto to ensure buttons work over the video */}
+            {/* Quick Links Overlay */}
             <div className="absolute bottom-4 right-4 z-20 flex gap-2 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-              <Button size="icon" variant="secondary" className="rounded-full shadow-lg h-9 w-9" asChild>
-                <a href={project.githubUrl} target="_blank"><Github className="w-4 h-4" /></a>
-              </Button>
-              <Button size="icon" className="rounded-full shadow-lg h-9 w-9" asChild>
-                <a href={project.liveUrl} target="_blank"><ExternalLink className="w-4 h-4" /></a>
-              </Button>
+              {project.githubUrl && (
+                <Button
+                  size="icon"
+                  variant="secondary"
+                  className="rounded-full shadow-lg h-9 w-9"
+                  asChild
+                >
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} source code on GitHub`}
+                  >
+                    <FaGithub className="w-4 h-4" />
+                  </a>
+                </Button>
+              )}
+              {project.liveUrl && (
+                <Button
+                  size="icon"
+                  className="rounded-full shadow-lg h-9 w-9"
+                  asChild
+                >
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit live demo for ${project.title}`}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </Button>
+              )}
             </div>
 
-            {/* Subtle Gradient Overlay - pointer-events-none is CRITICAL here */}
+            {/* Subtle Gradient Overlay */}
             <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent pointer-events-none" />
           </div>
 
           {/* Text Content */}
-          <div className="p-6 flex flex-col flex-1">
+          <div className="pt-6 flex flex-col flex-1">
             <div className="flex items-center gap-2 mb-3">
-              {project.category === "mobile" ? <Smartphone className="w-4 h-4 text-primary" /> : <Globe className="w-4 h-4 text-primary" />}
+              {isMobile ? (
+                <Smartphone className="w-4 h-4 text-primary" />
+              ) : (
+                <Globe className="w-4 h-4 text-primary" />
+              )}
               <span className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground">
                 {project.category}
               </span>
             </div>
 
-            <h3 className="text-xl font-bold mb-2 tracking-tight">{project.title}</h3>
+            <h3 className="text-xl font-bold mb-2 tracking-tight">
+              {project.title}
+            </h3>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
               {project.description}
             </p>
@@ -221,7 +204,7 @@ function ProjectCard({ project }: { project: Project; index: number }) {
                 <Badge
                   key={tag}
                   variant="secondary"
-                  className="bg-primary/5 text-primary border-none hover:bg-primary/10 transition-colors px-2.5 py-0 rounded-md text-[10px] font-medium"
+                  className="bg-primary/5 text-primary border-none hover:bg-primary/10 transition-colors px-2.5 py-0.5 rounded-md text-[10px] font-medium"
                 >
                   {tag}
                 </Badge>
