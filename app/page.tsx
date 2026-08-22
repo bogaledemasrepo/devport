@@ -38,9 +38,10 @@ export default function Home() {
 
             <FadeIn delay={0.3}>
               <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">
-                Full-stack developer with 2+ years of experience building
-                scalable web applications. I bridge the gap between complex
-                backend logic and polished frontend design.
+                Software developer with 2+ years of experience specialized in
+                building high performance and scalable full-stack web and mobile
+                applications. I bridge the gap between complex backend logic and
+                polished frontend design.
               </p>
             </FadeIn>
 
@@ -53,7 +54,7 @@ export default function Home() {
                   asChild
                 >
                   <a
-                    href="https://bit.ly/4q4SQJK"
+                    href="https://drive.google.com/file/d/1smZW5YvqUQ2Ex1c9VExCgR9c4czEgkBA/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
