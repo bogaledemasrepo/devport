@@ -22,7 +22,7 @@ function GetInTech() {
   };
   return (
     <section className="relative overflow-hidden py-24">
-      <div className="bg-primary/[0.02] absolute inset-0 -z-10" />
+      <div className="bg-primary/2 absolute inset-0 -z-10" />
       <div className="container mx-auto px-6 text-center">
         <FadeIn>
           <h2 className="mb-6 text-4xl font-bold md:text-5xl">
@@ -33,7 +33,7 @@ function GetInTech() {
             currently available for new projects and collaborations.
           </p>
 
-          <div className="mb-16 flex flex-wrap justify-center gap-6">
+          <div className="mb-16 flex flex-wrap justify-center gap-3">
             {[
               {
                 icon: Mail,
@@ -61,9 +61,9 @@ function GetInTech() {
                 <Button
                   onClick={item.fun}
                   variant="outline"
-                  className={`bg-background h-16 rounded-2xl px-8 shadow-sm ${item.border} hover:bg-secondary transition-all`}
+                  className={`bg-background h-12 w-32 rounded-xl px-12 shadow-sm ${item.border} hover:bg-secondary transition-all`}
                 >
-                  <item.icon className={`mr-3 h-5 w-5 ${item.color}`} />
+                  <item.icon className={`mr-1 h-4 w-4 ${item.color}`} />
                   <span className="font-semibold">{item.label}</span>
                 </Button>
               </motion.div>
