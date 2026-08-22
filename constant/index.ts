@@ -1,4 +1,4 @@
-import { Code, Database, Smartphone, Zap } from "lucide-react";
+import { Code, Database, ShieldCheck, Smartphone, Zap } from "lucide-react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { VscGithubAlt } from "react-icons/vsc";
 import { RiTelegramLine } from "react-icons/ri";
@@ -7,74 +7,94 @@ export const SKILLS = [
   {
     icon: Code,
     title: "Frontend Development",
-    description: "React, Next.js, TypeScript, Tailwind CSS",
-    proficiency: 95,
+    description: "React, Next.js, TypeScript, Tailwind CSS, HTML5/CSS3",
+    proficiency: 92,
     color: "text-primary",
   },
   {
     icon: Database,
     title: "Backend Development",
-    description: "Node.js, Python, PostgreSQL, MongoDB",
+    description:
+      "Spring Boot, Node.js, Express, FastAPI, PostgreSQL, REST APIs",
     proficiency: 88,
     color: "text-accent",
   },
   {
     icon: Smartphone,
     title: "Mobile Development",
-    description: "React Native, Flutter, iOS/Android",
-    proficiency: 78,
+    description: "React Native, Expo, Cross-Platform Architecture",
+    proficiency: 85,
     color: "text-primary",
   },
   {
-    icon: Zap,
-    title: "DevOps & Tools",
-    description: "Docker, AWS, CI/CD, Git, Testing",
-    proficiency: 85,
+    icon: ShieldCheck, // Or Terminal / Server icon depending on your icon package
+    title: "IT Infrastructure & Security",
+    description:
+      "Linux (Kali), Network Maintenance, Vulnerability Analysis, Penetration Testing",
+    proficiency: 82,
     color: "text-secondary",
   },
+  {
+    icon: Zap,
+    title: "Tools & DevOps",
+    description: "Git/GitHub, Docker, Bash Scripting, Nmap, Figma",
+    proficiency: 86,
+    color: "text-accent",
+  },
 ];
-
 export const TIMELINEEVENT = [
   {
-    year: "2025",
-    title: "Full-Stack Developer",
-    company: "Abole Technology plc",
+    year: "2026 - Present",
+    title: "Information Technology Teacher",
+    company: "Gibson School",
     location: "Addis Ababa, Ethiopia",
     type: "work",
     description:
-      "Built the entire frontend and backend infrastructure from scratch using modern technologies.",
+      "Developed and delivered comprehensive IT curriculum while mentoring students through hands-on technical projects.",
     achievements: [
-      "Improved app performance by 40%",
-      "Scaled to 10k+ users",
-      "Integrated payment systems",
+      "Guided and mentored students through practical, real-world IT projects",
+      "Organized industry workshops and seminars on modern IT trends",
+      "Conducted ongoing performance evaluations and constructive student feedback",
+    ],
+  },
+  {
+    year: "2025 - 2026",
+    title: "Full Stack Developer",
+    company: "Abol Technologies",
+    location: "Addis Ababa, Ethiopia",
+    type: "work",
+    description:
+      "Engineered pixel-perfect, responsive web and mobile application features with a strong focus on security and user experience.",
+    achievements: [
+      "Increased user engagement by 5% via responsive UI/UX designs",
+      "Reduced system vulnerabilities by 7% through input sanitization and bug analysis",
     ],
   },
   {
     year: "2024",
-    title: "Full-Stack Development",
-    company: "Teamwork SOftwareplc",
+    title: "Web Developer",
+    company: "Team Work",
     location: "Bahir Dar, Ethiopia",
     type: "work",
     description:
-      "Specialized in creating responsive, accessible web applications for diverse clients.",
+      "Collaborated with design and senior engineering teams to build corporate web solutions and resolve complex codebase issues.",
     achievements: [
-      "Delivered 15+ client projects",
-      "Improved accessibility scores",
-      "Mentored interns",
+      "Boosted user engagement by 15% through streamlined interface designs",
+      "Enhanced overall software efficiency by 10% via effective code troubleshooting",
+      "Managed design project workflows in collaboration with senior developers",
     ],
   },
   {
-    year: "2023",
-    title: "Computer Science Degree",
+    year: "2019 - 2023",
+    title: "B.Sc. in Computer Science",
     company: "Bahir Dar University",
     location: "Bahir Dar, Ethiopia",
     type: "education",
     description:
-      "Bachelor's degree with focus on software engineering and cyber security.",
+      "Completed undergraduate studies specializing in computer science, software engineering, and system fundamentals.",
     achievements: [
-      "Magna Cum Laude",
-      "Dean's List 4 semesters",
-      "Capstone project award",
+      "Graduated with a Cumulative GPA of 3.15 / 4.0",
+      "Passed the National Exit Examination with a 77% score",
     ],
   },
 ];
