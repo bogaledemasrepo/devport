@@ -33,8 +33,11 @@ export default function ContactPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          subject: `Portfolio Contact: ${subject}`,
-          message: `From: ${firstName} ${lastName} <${email}>\n\n${message}`,
+          firstName,
+          lastName,
+          email,
+          subject,
+          message,
         }),
       });
 
